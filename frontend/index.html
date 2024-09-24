@@ -1,0 +1,47 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Primera Web</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido a Mi Primera Web</h1>
+    </header>
+
+    <section>
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Nombre de usuario" />
+        <input type="password" id="password" placeholder="Contraseña" />
+        <button type="submit">Acceder</button>
+      </form>
+      <p id="message"></p>
+    </section>
+
+    <script>
+      // Manejar el envío del formulario
+      const form = document.getElementById('loginForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const response = await fetch('http://localhost:5000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+        const messageElement = document.getElementById('message');
+        messageElement.textContent = data.message;
+      });
+    </script>
+  </body>
+</html>
