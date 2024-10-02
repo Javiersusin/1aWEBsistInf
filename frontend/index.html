@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
+    <title>Inicio de Sesión - BiteFinder</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
 </head>
 <body>
     <div class="container">
         <h1>Iniciar Sesión</h1>
-        <form id="loginForm">
+        <form id="INICIO_SESION">
             <input type="text" id="username" placeholder="Usuario" required />
             <input type="password" id="password" placeholder="Contraseña" required />
-            <button type="submit">Acceder</button>
+            <button class="boton" type="submit">Acceder</button>
         </form>
         <p id="responseMessage"></p>
     </div>
 
     <script>
-        const form = document.getElementById('loginForm');
+        const form = document.getElementById('INICIO_SESION');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value;

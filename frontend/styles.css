@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #7fb5b7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,27 +10,30 @@ body {
 
 .container {
   background-color: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(38, 48, 182);
+  text-align: center; /* Para centrar el texto dentro del contenedor */
 }
 
 input {
   display: block;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 90%;
+  margin: 10px auto; /* Centra los inputs dentro del formulario */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 button {
+  width: 100%; /* Hace que el botón ocupe todo el ancho del formulario */
   padding: 10px;
   background-color: #305cb4;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px; /* Añade un margen para separar el botón del resto de los inputs */
 }
 
 button:hover {
