@@ -18,7 +18,7 @@ body {
 
 input {
   display: block;
-  width: 90%;
+  width: 90%; /*el input ocupa casi todo el ancho disponible*/
   margin: 10px auto; /* Centra los inputs dentro del formulario */
   padding: 10px;
   border: 1px solid #ccc;
@@ -35,6 +35,27 @@ button {
   cursor: pointer;
   margin-top: 10px; /* Añade un margen para separar el botón del resto de los inputs */
 }
+
+/* .Enlace{
+  margin-top: 20px;
+} */
+.Enlace {
+  color: rgb(41, 0, 128); /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: bold; /* Negrita */
+  margin-top: 20px;
+  /* //padding: 20px 0; Espacio superior e inferior */
+  display: block; /* Hace que ocupe toda la línea */
+  text-align: center; /* Centra el texto */
+  transition: color 0.3s ease; /* Animación suave para el cambio de color */
+}
+
+.Enlace:hover {
+  color: #0056b3; /* Color cuando se pasa el ratón por encima */
+  text-decoration: underline; /* Subrayado en hover */
+}
+
+
 
 button:hover {
   background-color: #1d3f87;
