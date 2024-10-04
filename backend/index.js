@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const UserDAO = require('./dao/UserDAO');
 const app = express();
-const port = 5000;
+const port = 5432;
 
 app.use(cors());
 app.use(express.json());
