@@ -2,12 +2,16 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  color: white;
   overflow: hidden;
   background-color: #333333;
 }
 
 li {
   float: left;
+}
+#lista1 li {
+  float: right;
 }
 
 li a {
@@ -20,4 +24,20 @@ li a {
 
 li a:hover {
   background-color: #111111;
+}
+
+.logo-esquina {
+ --position: fixed; /* Fija la imagen en la esquina */
+  bottom: 1;            /* Ajusta la imagen a la parte inferior */
+  left: 1;             /* Ajusta la imagen a la parte derecha */
+  width: 80px;         /* Tamaño de la imagen (puedes ajustar el valor) */
+  height: auto;         /* Mantener la proporción de la imagen */
+  z-index: 1000;        /* Asegura que la imagen esté por encima de otros elementos */
+  border-radius: 15px;  /* Añade una curva a las esquinas de la imagen */
+}
+
+
+.Text_Menu{ /*Para la palabra menu de arriba*/
+  text-align: center;     /* Alinea el texto al centro horizontalmente */
+  margin-top: 40px;       /* Añade un poco de margen entre la imagen y el texto */
 }
