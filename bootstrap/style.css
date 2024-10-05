@@ -1,0 +1,26 @@
+/*Barra de Navegacion*/
+/* .navbar{
+    padding: 2rem;
+    background-color: rgb(243, 227, 52);
+} */
+
+.navbar-collapse{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item:hover{
+    background-color: #adbd19;
+    border-radius: 10px;
+}
+
+/*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
+Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
+@media screen and (max-width: 767px) {
+    .navbar-brand{
+        display: none;
+    }
+    .navbar-titulo{
+        text-align: center;
+    }
+}
