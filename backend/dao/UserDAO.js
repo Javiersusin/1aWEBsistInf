@@ -1,55 +1,42 @@
+// backend/dao/UserDAO.js
 const pool = require('../database/db');
-const UserVO = require('../vo/UserVO');
+//const bcrypt = require('bcrypt');
 
 class UserDAO {
-    static async findByUsername(username) {
-        const query = 'SELECT * FROM users WHERE username = $1';
-        const result = await pool.query(query, [username]);
-        if (result.rows.length > 0) {
-            const { id, username, password } = result.rows[0];
-            return new UserVO(id, username, password);
-        } else {
-            return null;
-        }
+  // Método para buscar un usuario por nombre de usuario
+  static async findUserByUsername(username) {
+    try {
+      const result = await pool.query('SELECT * FROM usuarios WHERE nombre = $1', [username]);
+      return result.rows[0];
+    } catch (error) {
+      console.error('Error al buscar el usuario:', error);
+      throw error;
     }
+  }
 
-    // Crear un nuevo usuario
-    static async createUser(username, password) {
-        const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *';
-        const result = await pool.query(query, [username, password]);
-        const { id, username: createdUsername, password: createdPassword } = result.rows[0];
-        return new UserVO(id, createdUsername, createdPassword);
-    }
+  // Método para validar la contraseña
+  static async validatePassword(userVO) {
+    try {
+      const user = await this.findUserByUsername(userVO.getUsername());
 
-    // Obtener todos los usuarios
-    static async findAll() {
-        const query = 'SELECT * FROM users';
-        const result = await pool.query(query);
-        return result.rows.map(row => new UserVO(row.id, row.username, row.password));
-    }
+      if (!user) {
+        throw new Error('Usuario no encontrado');
+      }
 
-    // Actualizar un usuario por su ID
-    static async updateUser(id, username, password) {
-        const query = 'UPDATE users SET username = $1, password = $2 WHERE id = $3 RETURNING *';
-        const result = await pool.query(query, [username, password, id]);
-        if (result.rows.length > 0) {
-            const { id: updatedId, username: updatedUsername, password: updatedPassword } = result.rows[0];
-            return new UserVO(updatedId, updatedUsername, updatedPassword);
-        } else {
-            return null;
-        }
-    }
+      // Verifica si la contraseña es nula o no está definida
+      /*if (!user.contrasena) {
+        throw new Error('La contraseña no está definida para este usuario');
+      }*/
 
-    // Eliminar un usuario por su ID
-    static async deleteUser(id) {
-        const query = 'DELETE FROM users WHERE id = $1 RETURNING *';
-        const result = await pool.query(query, [id]);
-        if (result.rows.length > 0) {
-            return true;
-        } else {
-            return false;
-        }
+      // Comparar la contraseña proporcionada con la almacenada en la base de datos
+      const validPassword = user.contrasena === userVO.getPassword();
+      return validPassword;
+    } catch (error) {
+      console.error('Error al validar la contraseña:', error);
+      throw error;
     }
+  }
 }
 
 module.exports = UserDAO;
+

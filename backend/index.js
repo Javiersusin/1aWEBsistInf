@@ -1,23 +1,22 @@
+// backend/index.js
+
 const express = require('express');
 const cors = require('cors');
-const UserDAO = require('./dao/UserDAO');
+const authRoutes = require('./routes/auth');
+
 const app = express();
-const port = 5432;
+const port = 3000; // Cambia este valor según el puerto que desees usar
 
+// Middleware para permitir solicitudes CORS (Cross-Origin Resource Sharing)
 app.use(cors());
-app.use(express.json());
 
-app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const user = await UserDAO.findByUsername(username);
-    
-    if (user && user.password === password) {
-        res.status(200).json({ message: 'Autenticación exitosa' });
-    } else {
-        res.status(401).json({ message: 'Credenciales incorrectas' });
-    }
-});
+// Middleware para analizar JSON en el cuerpo de las solicitudes
+app.use(express.json()); 
 
+// Usar la ruta de autenticación
+app.use('/api', authRoutes);
+
+// Iniciar el servidor en el puerto especificado
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });

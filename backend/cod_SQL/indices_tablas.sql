@@ -1,6 +1,4 @@
 -- Índices para la tabla Usuarios
-CREATE INDEX idx_usuarios_nombre ON Usuarios (nombre);
-CREATE INDEX idx_usuarios_apellidos ON Usuarios (apellidos);
 CREATE INDEX idx_usuarios_correo ON Usuarios (correo);
 
 -- Índices para la tabla restaurante

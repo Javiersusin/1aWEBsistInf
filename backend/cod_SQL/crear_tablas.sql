@@ -1,7 +1,5 @@
 CREATE TABLE Usuarios (
-    idUser SERIAL PRIMARY KEY,
-    nombre TEXT NOT NULL,
-    apellidos TEXT NOT NULL,
+    nombre TEXT PRIMARY KEY,
     correo TEXT NOT NULL,
     contrasena TEXT NOT NULL,
     tipoUsuario TEXT NOT NULL
@@ -9,7 +7,7 @@ CREATE TABLE Usuarios (
 
 CREATE TABLE restaurante (
     idRestaurante SERIAL PRIMARY KEY,
-    jefe INTEGER,
+    jefe TEXT,
     aforo INTEGER,
     fotos TEXT,
     URLweb TEXT,
@@ -18,7 +16,7 @@ CREATE TABLE restaurante (
     visitas INTEGER,
     email TEXT,
     nombre TEXT,  
-    FOREIGN KEY (jefe) REFERENCES Usuarios(idUser) ON DELETE CASCADE
+    FOREIGN KEY (jefe) REFERENCES Usuarios(nombre) ON DELETE CASCADE
 );
 
 CREATE TABLE resenas (
@@ -26,9 +24,9 @@ CREATE TABLE resenas (
     fecha DATE NOT NULL,
     texto TEXT NOT NULL,
     valoracion INTEGER NOT NULL,
-    comentarista INTEGER NOT NULL,
+    comentarista TEXT NOT NULL,
     local INTEGER NOT NULL,
-    FOREIGN KEY (comentarista) REFERENCES Usuarios(idUser) ON DELETE CASCADE,
+    FOREIGN KEY (comentarista) REFERENCES Usuarios(nombre) ON DELETE CASCADE,
     FOREIGN KEY (local) REFERENCES restaurante(idRestaurante) ON DELETE CASCADE
 );
 

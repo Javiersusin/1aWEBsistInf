@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <form id="loginFormulario" class="container">
+    <form id="loginForm" class="container">
         <h1>Iniciar Sesión</h1>
         <input type="text" id="username" name="username" placeholder="Usuario" required>
         <input type="password" id="password" name="password" placeholder="Contraseña" required>
@@ -17,6 +17,40 @@
         <a class="Enlace" href="Registrarse.html" >PULSE AQUI PARA REGISTRARSE</a>
         <p id="responseMessage"></p>
     </form>
-
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+      
+          // Obtener los valores de usuario y contraseña
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+      
+          // Enviar la información al backend
+          try {
+            const response = await fetch('http://localhost:3000/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ username, password })
+            });
+      
+            // Procesar la respuesta
+            const data = await response.json();
+            if (response.ok) {
+              // Si la autenticación es exitosa
+              alert('Inicio de sesión exitoso');
+              window.location.href = './Inicio.html';
+            } else {
+              // Si la autenticación falla
+              alert(data.message);
+            }
+          } catch (error) {
+            console.error('Error en la autenticación:', error);
+          }
+        });
+      </script>
+      
+ 
 </body>
 </html>
