@@ -20,7 +20,7 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
     .navbar-brand{
         display: none;
     }
-    .navbar-titulo{
+    .navbar-titulo {
         text-align: center;
-    }
+      }
 }
