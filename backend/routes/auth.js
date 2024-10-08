@@ -2,8 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
-const UserVO = require('../vo/UserVO');
-const UserDAO = require('../dao/UserDAO');
+
+const UsuarioVO = require('../vo/UsuarioVO');
+const UsuarioDAO = require('../dao/UsuarioDAO');
 
 // Ruta para manejar el inicio de sesión
 router.post('/login', async (req, res) => {
@@ -15,14 +16,14 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    // Crear un objeto UserVO con los datos ingresados por el usuario
-    const userVO = new UserVO(username, password);
+    // Crear un objeto UsuarioVO con los datos ingresados por el usuario
+    const userVO = new UsuarioVO(username, password);
 
-    // Validar las credenciales usando UserDAO
-    const validPassword = await UserDAO.validatePassword(userVO);
+    // Validar las credenciales usando UsuarioDAO
+    const validPassword = await UsuarioDAO.validatePassword(userVO);
 
     if (!validPassword) {
-      return res.status(401).json({ message: 'Usuario o contraseña incorrectos' });
+      return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
 
     // Si la autenticación es correcta

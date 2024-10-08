@@ -27,54 +27,54 @@
 
 // VO para la tabla Usuarios
 class UsuarioVO {
-  constructor(nombre, correo, contrasena, tipoUsuario) {
-      this._nombre = nombre; // TEXT - PK
-      this._correo = correo; // TEXT - NOT NULL
-      this._contrasena = contrasena; // TEXT - NOT NULL
-      this._tipoUsuario = tipoUsuario; // TEXT - NOT NULL
+  constructor(nombre, correo= '', contrasena, tipoUsuario= '') {
+      this.nombre = nombre; // TEXT - PK
+      this.correo = correo; // TEXT - NOT NULL
+      this.contrasena = contrasena; // TEXT - NOT NULL
+      this.tipoUsuario = tipoUsuario; // TEXT - NOT NULL
   }
 
   // Getters
-  get nombre() {
-      return this._nombre;
+  getNombre() {
+      return this.nombre;
   }
 
-  get correo() {
-      return this._correo;
+  getCorreo() {
+      return this.correo;
   }
 
-  get contrasena() {
-      return this._contrasena;
+  getContrasena() {
+      return this.contrasena;
   }
 
-  get tipoUsuario() {
-      return this._tipoUsuario;
+  getTipoUsuario() {
+      return this.tipoUsuario;
   }
 
   // Setters
-  set nombre(nombre) {
-      this._nombre = nombre;
+  setNombre(nombre) {
+      this.nombre = nombre;
   }
 
-  set correo(correo) {
-      this._correo = correo;
+  setCorreo(correo) {
+      this.correo = correo;
   }
 
-  set contrasena(contrasena) {
-      this._contrasena = contrasena;
+  setContrasena(contrasena) {
+      this.contrasena = contrasena;
   }
 
-  set tipoUsuario(tipoUsuario) {
-      this._tipoUsuario = tipoUsuario;
+  setTipoUsuario(tipoUsuario) {
+      this.tipoUsuario = tipoUsuario;
   }
 
   // Método para serializar la instancia a JSON, esto nos servirá para poder enviar datos a un servidor, almacenarlos en una base de datos, etc..
   toJson() {
     return JSON.stringify({
-        nombre: this._nombre,
-        correo: this._correo,
-        contrasena: this._contrasena,
-        tipoUsuario: this._tipoUsuario
+        nombre: this.nombre,
+        correo: this.correo,
+        contrasena: this.contrasena,
+        tipoUsuario: this.tipoUsuario
     });
   }
 }

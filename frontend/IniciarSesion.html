@@ -18,6 +18,8 @@
         <p id="responseMessage"></p>
     </form>
     <script>
+      //loginForm es el id del contenedor sobre el que quiero actuar y username y password las variables
+      //que introduce el usuario y yo me guardo para enviar a la BD
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
           e.preventDefault();
       
@@ -25,7 +27,7 @@
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
       
-          // Enviar la información al backend
+          // Enviar la información al backend, definiendo ruta en la que me lee en puerto local
           try {
             const response = await fetch('http://localhost:3000/api/login', {
               method: 'POST',
