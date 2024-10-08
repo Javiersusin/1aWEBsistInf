@@ -1,72 +1,72 @@
 class HorarioVO {
     constructor(rest, AbreManana, AbreNoche, diaSemana, CierraManana, CierraNoche) {
-        this._rest = rest;
-        this._AbreManana = AbreManana;
-        this._AbreNoche = AbreNoche;
-        this._diaSemana = diaSemana;
-        this._CierraManana = CierraManana;
-        this._CierraNoche = CierraNoche;
+        this.rest = rest;
+        this.AbreManana = AbreManana;
+        this.AbreNoche = AbreNoche;
+        this.diaSemana = diaSemana;
+        this.CierraManana = CierraManana;
+        this.CierraNoche = CierraNoche;
     }
 
     // Getters
-    get rest() {
-        return this._rest;
+    getRest() {
+        return this.rest;
     }
 
-    get AbreManana() {
-        return this._AbreManana;
+    getAbreManana() {
+        return this.AbreManana;
     }
 
-    get AbreNoche() {
-        return this._AbreNoche;
+    getAbreNoche() {
+        return this.AbreNoche;
     }
 
-    get diaSemana() {
-        return this._diaSemana;
+    getDiaSemana() {
+        return this.diaSemana;
     }
 
-    get CierraManana() {
-        return this._CierraManana;
+    getCierraManana() {
+        return this.CierraManana;
     }
 
-    get CierraNoche() {
-        return this._CierraNoche;
+    getCierraNoche() {
+        return this.CierraNoche;
     }
 
     // Setters
-    set rest(rest) {
-        this._rest = rest;
+    setRest(rest) {
+        this.rest = rest;
     }
 
-    set AbreManana(AbreManana) {
-        this._AbreManana = AbreManana;
+    setAbreManana(AbreManana) {
+        this.AbreManana = AbreManana;
     }
 
-    set AbreNoche(AbreNoche) {
-        this._AbreNoche = AbreNoche;
+    setAbreNoche(AbreNoche) {
+        this.AbreNoche = AbreNoche;
     }
 
-    set diaSemana(diaSemana) {
-        this._diaSemana = diaSemana;
+    setDiaSemana(diaSemana) {
+        this.diaSemana = diaSemana;
     }
 
-    set CierraManana(CierraManana) {
-        this._CierraManana = CierraManana;
+    setCierraManana(CierraManana) {
+        this.CierraManana = CierraManana;
     }
 
-    set CierraNoche(CierraNoche) {
-        this._CierraNoche = CierraNoche;
+    setCierraNoche(CierraNoche) {
+        this.CierraNoche = CierraNoche;
     }
 
     // Método para serializar la instancia a JSON, esto nos servirá para poder enviar datos a un servidor, almacenarlos en una base de datos, etc..
     toJson() {
         return JSON.stringify({
-            rest: this._rest,
-            AbreManana: this._AbreManana,
-            AbreNoche: this._AbreNoche,
-            diaSemana: this._diaSemana,
-            CierraManana: this._CierraManana,
-            CierraNoche: this._CierraNoche
+            rest: this.rest,
+            AbreManana: this.AbreManana,
+            AbreNoche: this.AbreNoche,
+            diaSemana: this.diaSemana,
+            CierraManana: this.CierraManana,
+            CierraNoche: this.CierraNoche
         });
     }
 }

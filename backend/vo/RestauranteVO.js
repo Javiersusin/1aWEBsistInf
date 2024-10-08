@@ -1,113 +1,113 @@
 // VO para la tabla restaurante
 class RestauranteVO {
     constructor(idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre) {
-        this._idRestaurante = idRestaurante; // SERIAL - PK
-        this._jefe = jefe; // TEXT - FK (Usuarios.nombre)
-        this._aforo = aforo; // INTEGER
-        this._fotos = fotos; // TEXT
-        this._URLweb = URLweb; // TEXT
-        this._telefono = telefono; // INT
-        this._descripcion = descripcion; // TEXT
-        this._visitas = visitas; // INTEGER
-        this._email = email; // TEXT
-        this._nombre = nombre; // TEXT
+        this.idRestaurante = idRestaurante; // SERIAL - PK
+        this.jefe = jefe; // TEXT - FK (Usuarios.nombre)
+        this.aforo = aforo; // INTEGER
+        this.fotos = fotos; // TEXT
+        this.URLweb = URLweb; // TEXT
+        this.telefono = telefono; // INT
+        this.descripcion = descripcion; // TEXT
+        this.visitas = visitas; // INTEGER
+        this.email = email; // TEXT
+        this.nombre = nombre; // TEXT
     }
   
     // Getters
-    get idRestaurante() {
-        return this._idRestaurante;
+    getIdRestaurante() {
+        return this.idRestaurante;
     }
   
-    get jefe() {
-        return this._jefe;
+    getJefe() {
+        return this.jefe;
     }
   
-    get aforo() {
-        return this._aforo;
+    getAforo() {
+        return this.aforo;
     }
   
-    get fotos() {
-        return this._fotos;
+    getFotos() {
+        return this.fotos;
     }
   
-    get URLweb() {
-        return this._URLweb;
+    getURLweb() {
+        return this.URLweb;
     }
   
-    get telefono() {
-        return this._telefono;
+    getTelefono() {
+        return this.telefono;
     }
   
-    get descripcion() {
-        return this._descripcion;
+    getDescripcion() {
+        return this.descripcion;
     }
   
-    get visitas() {
-        return this._visitas;
+    getVisitas() {
+        return this.visitas;
     }
   
-    get email() {
-        return this._email;
+    getEmail() {
+        return this.email;
     }
   
-    get nombre() {
-        return this._nombre;
+    getNombre() {
+        return this.nombre;
     }
   
     // Setters
-    set idRestaurante(idRestaurante) {
-        this._idRestaurante = idRestaurante;
+    setIdRestaurante(idRestaurante) {
+        this.idRestaurante = idRestaurante;
     }
   
-    set jefe(jefe) {
-        this._jefe = jefe;
+    setJefe(jefe) {
+        this.jefe = jefe;
     }
   
-    set aforo(aforo) {
-        this._aforo = aforo;
+    setAforo(aforo) {
+        this.aforo = aforo;
     }
   
-    set fotos(fotos) {
-        this._fotos = fotos;
+    setFotos(fotos) {
+        this.fotos = fotos;
     }
   
-    set URLweb(URLweb) {
-        this._URLweb = URLweb;
+    setURLweb(URLweb) {
+        this.URLweb = URLweb;
     }
   
-    set telefono(telefono) {
-        this._telefono = telefono;
+    setTelefono(telefono) {
+        this.telefono = telefono;
     }
   
-    set descripcion(descripcion) {
-        this._descripcion = descripcion;
+    setDescripcion(descripcion) {
+        this.descripcion = descripcion;
     }
   
-    set visitas(visitas) {
-        this._visitas = visitas;
+    setVisitas(visitas) {
+        this.visitas = visitas;
     }
   
-    set email(email) {
-        this._email = email;
+    setEmail(email) {
+        this.email = email;
     }
   
-    set nombre(nombre) {
-        this._nombre = nombre;
+    setNombre(nombre) {
+        this.nombre = nombre;
     }
 
      // Método para serializar la instancia a JSON, esto nos servirá para poder enviar datos a un servidor, almacenarlos en una base de datos, etc..
      toJson() {
         return JSON.stringify({
-            idRestaurante: this._idRestaurante,
-            jefe: this._jefe,
-            aforo: this._aforo,
-            fotos: this._fotos,
-            URLweb: this._URLweb,
-            telefono: this._telefono,
-            descripcion: this._descripcion,
-            visitas: this._visitas,
-            email: this._email,
-            nombre: this._nombre
+            idRestaurante: this.idRestaurante,
+            jefe: this.jefe,
+            aforo: this.aforo,
+            fotos: this.fotos,
+            URLweb: this.URLweb,
+            telefono: this.telefono,
+            descripcion: this.descripcion,
+            visitas: this.visitas,
+            email: this.email,
+            nombre: this.nombre
         });
     }
 }

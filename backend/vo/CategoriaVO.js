@@ -1,34 +1,34 @@
 class CategoriaVO {
     constructor(local, productoEspecialidad) {
-        this._local = local; // INTEGER - FK (restaurante.idRestaurante)
-        this._productoEspecialidad = productoEspecialidad; // TEXT - PK (local, productoEspecialidad)
+        this.local = local; // INTEGER - FK (restaurante.idRestaurante)
+        this.productoEspecialidad = productoEspecialidad; // TEXT - PK (local, productoEspecialidad)
     }
   
     // Getter para 'local'
-    get local() {
-      return this._local;
+    getLocal() {
+      return this.local;
     }
   
     // Setter para 'local'
-    set local(local) {
-      this._local = local;
+    setLocal(local) {
+      this.local = local;
     }
   
     // Getter para 'productoEspecialidad'
-    get productoEspecialidad() {
-      return this._productoEspecialidad;
+    getProductoEspecialidad() {
+      return this.productoEspecialidad;
     }
   
     // Setter para 'productoEspecialidad'
-    set productoEspecialidad(productoEspecialidad) {
-      this._productoEspecialidad = productoEspecialidad;
+    setProductoEspecialidad(productoEspecialidad) {
+      this.productoEspecialidad = productoEspecialidad;
     }
 
     // Método para serializar la instancia a JSON, esto nos servirá para poder enviar datos a un servidor, almacenarlos en una base de datos, etc..
     toJson() {
         return JSON.stringify({
-            local: this._local,
-            productoEspecialidad: this._productoEspecialidad
+            local: this.local,
+            productoEspecialidad: this.productoEspecialidad
         });
     }
 }

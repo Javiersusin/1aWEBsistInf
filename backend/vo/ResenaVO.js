@@ -1,77 +1,77 @@
 class ResenaVO {
     constructor(idResena, fecha, texto, valoracion, comentarista, local) {
-        this._idResena = idResena;
-        this._fecha = fecha;
-        this._texto = texto;
-        this._valoracion = valoracion;
-        this._comentarista = comentarista;
-        this._local = local;
+        this.idResena = idResena;
+        this.fecha = fecha;
+        this.texto = texto;
+        this.valoracion = valoracion;
+        this.comentarista = comentarista;
+        this.local = local;
     }
 
     // Getters
-    get idResena() {
-        return this._idResena;
+    getIdResena() {
+        return this.idResena;
     }
 
-    get fecha() {
-        return this._fecha;
+    getFecha() {
+        return this.fecha;
     }
 
-    get texto() {
-        return this._texto;
+    getTexto() {
+        return this.texto;
     }
 
-    get valoracion() {
-        return this._valoracion;
+    getValoracion() {
+        return this.valoracion;
     }
 
-    get comentarista() {
-        return this._comentarista;
+    getComentarista() {
+        return this.comentarista;
     }
 
-    get local() {
-        return this._local;
+    getLocal() {
+        return this.local;
     }
 
     // Setters
-    set idResena(idResena) {
-        this._idResena = idResena;
+    setIdResena(idResena) {
+        this.idResena = idResena;
     }
 
-    set fecha(fecha) {
-        this._fecha = fecha;
+    setFecha(fecha) {
+        this.fecha = fecha;
     }
 
-    set texto(texto) {
-        this._texto = texto;
+    setTexto(texto) {
+        this.texto = texto;
     }
 
-    set valoracion(valoracion) {
+    setValoracion(valoracion) {
         // Ejemplo de validación: la valoración debe estar entre 1 y 5
         if (valoracion >= 1 && valoracion <= 5) {
-            this._valoracion = valoracion;
+            this.valoracion = valoracion;
         } else {
             throw new Error("La valoración debe estar entre 1 y 5");
         }
     }
 
-    set comentarista(comentarista) {
-        this._comentarista = comentarista;
+    setComentarista(comentarista) {
+        this.comentarista = comentarista;
     }
 
-    set local(local) {
-        this._local = local;
+    setLocal(local) {
+        this.local = local;
     }
 
     // Método para serializar la instancia a JSON, esto nos servirá para poder enviar datos a un servidor, almacenarlos en una base de datos, etc..
     toJson() {
         return JSON.stringify({
-            idResena: this._idResena,
-            fecha: this._fecha,
-            texto: this._texto,
-            valoracion: this._valoracion,
-            comentarista: this._comentarista,
-            local: this._local
+            idResena: this.idResena,
+            fecha: this.fecha,
+            texto: this.texto,
+            valoracion: this.valoracion,
+            comentarista: this.comentarista,
+            local: this.local
         });
     }
 }

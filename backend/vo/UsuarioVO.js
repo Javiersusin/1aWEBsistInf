@@ -1,33 +1,8 @@
-// backend/vo/UserVO.js
+// backend/vo/UsuarioVO.js
 
-// class UserVO {
-//   constructor(username, password) {
-//     this.username = username;
-//     this.password = password;
-//   }
-
-//   // Getters
-//   getUsername() {
-//     return this.username;
-//   }
-
-//   getPassword() {
-//     return this.password;
-//   }
-
-//   // Setters
-//   setUsername(username) {
-//     this.username = username;
-//   }
-
-//   setPassword(password) {
-//     this.password = password;
-//   }
-// }
-
-// VO para la tabla Usuarios
+// VO para la tabla Usuarios, correo y tipo usuario
 class UsuarioVO {
-  constructor(nombre, correo= '', contrasena, tipoUsuario= '') {
+  constructor(nombre,  contrasena,correo= '', tipoUsuario= '') {
       this.nombre = nombre; // TEXT - PK
       this.correo = correo; // TEXT - NOT NULL
       this.contrasena = contrasena; // TEXT - NOT NULL

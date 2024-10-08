@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const db = require('../db'); 
 
 const UsuarioVO = require('../vo/UsuarioVO');
@@ -53,4 +53,4 @@ router.post('/user', async (req, res) => {
     }
 });
 
-module.exports = router;*/
+module.exports = router;
