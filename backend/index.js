@@ -2,15 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 //const addRoutes = require('./routes/add');
+const { Pool } = require('pg');
 
 const app = express();
-const port = 3000; // Cambia este valor según el puerto que desees usar
+const port = 3000;
 
-// Middleware para permitir solicitudes CORS (Cross-Origin Resource Sharing)
+// Middleware
 app.use(cors());
-
-// Middleware para analizar JSON en el cuerpo de las solicitudes
-app.use(express.json()); 
+app.use(express.json());
 
 // Usar la ruta de autenticación
 app.use('/api', authRoutes);
@@ -18,26 +17,29 @@ app.use('/api', authRoutes);
 // Usar la ruta que permite añadir elementos a la BD
 //app.use('/api', addRoutes);
 
-
-const { Pool } = require('pg');
-
-// Verificar qué valores está tomando de las variables de entorno
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
-console.log('DB_NAME:', process.env.DB_NAME);
-// Crear una nueva instancia de Pool con las credenciales de la base de datos
+// Configurar la conexión a PostgreSQL
 const pool = new Pool({
-  host: process.env.DB_HOST || 'db', // host es el nombre del servicio en docker-compose
+  host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'lithop21',
   database: process.env.DB_NAME || 'BiteFinder',
   port: 5432,
 });
 
+app.get('/', (req, res) => {
+  res.send('Bienvenido al backend');
+});
+
+// Iniciar el servidor
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
+});
 module.exports = pool;
 
-// Iniciar el servidor en el puerto especificado
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`); // Cambiado a localhost
-});
+
+/*PS D:\One Drive\OneDrive\Escritorio\SIST-inf-1AWEB> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
+058db2d44482   sist-inf-1aweb-backend   "docker-entrypoint.s…"   26 minutes ago   Up 26 minutes   0.0.0.0:3000->3000/tcp   node_backend
+d12624eedd11   postgres:15              "docker-entrypoint.s…"   26 minutes ago   Up 26 minutes   0.0.0.0:5432->5432/tcp   postgres_db
+PS D:\One Drive\OneDrive\Escritorio\SIST-inf-1AWEB> docker exec -it postgres_db psql -U postgres -d BiteFinder
+y aqui ya las consultas sql 1 a 1*/

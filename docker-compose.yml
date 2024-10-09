@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /d/Postgres/SQL/17/data
+      - D:/docker/pgdata:/var/lib/postgresql/data  # Ruta absoluta en el disco D
     networks:
       - mynetwork
 
