@@ -72,6 +72,7 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
     width: 23%;
     min-width: 120px;
     height: auto;
+    min-height: 80px;
     text-align: center;
     margin: 3px;
 }
@@ -87,10 +88,18 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
 }
 
 .buscador {
-    border-radius: 30%;
-    background-color: #9db517b1;
-    margin: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
+
+.buscador nav {
+    width: 50%;
+}
+
 
 .navbar-brand img {
     font-size: 1.5rem;
@@ -117,4 +126,137 @@ hr {
     background-color: rgb(35, 35, 35);
     padding: 0;
     margin: 0;
+}
+
+/* Parte de carrusel grande
+.food-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.food-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.food-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 200px;
+}
+
+.food-item {
+    background-color: #444;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 200px;
+    position: relative;
+}
+
+.food-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.food-item .overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 183, 168, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.food-item .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 183, 168, 0.8);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.food-item .arrow.left {
+    left: 10px;
+}
+
+.food-item .arrow.right {
+    right: 10px;
+} */
+
+/*Parte de carrusel pequeño*/
+.carousel-inner {
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    display: flex;
+    overflow-y: auto;
+}
+
+.carousel-inner div {
+    width: 20%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #444;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
 }
