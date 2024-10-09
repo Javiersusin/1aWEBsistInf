@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #ccff33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.registro {
+    text-align: center;
+    background-color: #333333;
+    color: white;
+    padding: 50px 0;
+}
+
+.registro .busqueda input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.registro h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #337ab7;
+}
+
+.bienvenida {
+    text-align: left;
+    width: 40%;
+}
+
+.bienvenida h2 {
+    font-size: 2rem;
+}
+
+.bienvenida button {
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: left;
+}
+
+.formulario label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario p {
+    font-size: 0.8rem;
+    color: white;
+    margin-bottom: 10px;
+}

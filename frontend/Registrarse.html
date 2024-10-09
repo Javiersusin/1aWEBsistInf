@@ -1,18 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteFinder Registro</title>
     <link rel="stylesheet" href="Registrarse.css">
-    <link rel="icon" href="https://static01.nyt.com/images/2023/04/20/fashion/20HASBULLA/20HASBULLA-superJumbo.jpg" type="image/x-icon">
-    <title>Registro</title>
 </head>
 <body>
-    <h1> ITALIANAAAAAAAAAAAAAAAAA</h1>
-    <!-- <a class="Enlace" href="Index.html" >PULSE AQUI PARA VOLVER</a> -->
-    <a class="Enlace" href="javascript:window.history.back()" >PULSE AQUI PARA VOLVER</a> <!--Para volver a la pantalla anterior sin tener que ponerle el nombre del html-->
-    <img src="https://static01.nyt.com/images/2023/04/20/fashion/20HASBULLA/20HASBULLA-superJumbo.jpg" alt="Foto hasbulla">   
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="./img/favicon.png" alt="BiteFinder Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Inicio Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    
+    <!-- Main Section -->
+    <main>
+        <section class="register-section">
+            <h1>REGISTRO</h1>
+            <h2>¡BIENVENIDO A BiteFinder!</h2>
+            <p>Introduce los siguientes datos para que podamos conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
+            <button>Iniciar sesión</button>
+            
+            <form class="user-form">
+                <label for="nombreJefe">Nombre jefe</label>
+                <input type="text" id="nombreJefe" placeholder="¿Cómo quieres que te conozcan?">
+
+                <div class="input-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Ingrese su nombre">
+                </div>
+
+                <div class="input-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" placeholder="Ingrese su apellido">
+                </div>
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="usuario@bitemail.com">
+
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="#.pizza?@">
+
+                <p>Ingresa al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.</p>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section class="local-section">
+            <h2>Agregue datos de su local:</h2>
+            <form class="local-form">
+                <div class="input-group">
+                    <label for="emailContacto">Email de contacto</label>
+                    <input type="email" id="emailContacto" placeholder="Enter a valid email address">
+                </div>
+
+                <div class="input-group">
+                    <label for="nombreRestaurante">Nombre del restaurante</label>
+                    <input type="text" id="nombreRestaurante" placeholder="Enter your Name">
+                </div>
+
+                <label for="descripcion">Descripción del local</label>
+                <textarea id="descripcion" placeholder="Describe tu local"></textarea>
+
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+14155552675">
+
+                <label for="url">URL</label>
+                <input type="url" id="url" placeholder="Ingrese su URL (opcional)">
+
+                <label for="tiempoComidas">Tiempo comidas</label>
+                <input type="time" id="tiempoComidas">
+
+                <label for="tiempoCenas">Tiempo cenas</label>
+                <input type="time" id="tiempoCenas">
+
+                <label for="capacidadMesa">Capacidad máxima mesa</label>
+                <input type="number" id="capacidadMesa" value="0">
+
+                <label for="capacidadSala">Capacidad máxima sala</label>
+                <input type="number" id="capacidadSala" value="0">
+
+                <div class="file-upload">
+                    <label for="imagenLocal">Inserta fotografías del local, menú, carta, etc:</label>
+                    <input type="file" id="imagenLocal">
+                </div>
+
+                <button type="submit">Guardar local</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Texto de muestra. Haz click para seleccionar el elemento de Texto.</p>
+    </footer>
 </body>
 </html>
