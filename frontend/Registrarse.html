@@ -3,54 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autor" content="Diego Simon">
+    <meta name="description" content="Pantalla destinada al registro de un local nuevo para la aplicación BiteFinder">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  rel="stylesheet">
+
+    <!--Fuentes de letras-->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
     <title>BiteFinder Registro</title>
+    <link rel="stylesheet" href="RegistrarseUSUARIO.css">
     <link rel="stylesheet" href="Registrarse.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <img src="./img/favicon.png" alt="BiteFinder Logo">
+    <!-- Barra de navegacion -->
+    <nav class="navbar navbar-expand-md navbar-light" style="padding: 2rem; background-color: #d3e71a">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-toggler">
+                <a class="navbar-brand">
+                    <img src="./img/favicon.png" width="100px" alt="Logo de BiteFinder">
+                </a>
+                <h1 class="navbar-titulo" style="font-family: 'Lobster'; font-size: 60px">BiteFinder</h1>
+                <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 26px;" href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 26px;" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 26px;" href="Informacion+.html">+Información</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Inicio Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
 
     <!-- Main Section -->
     <main>
         <section class="register-section">
-            <h1>REGISTRO</h1>
-            <h2>¡BIENVENIDO A BiteFinder!</h2>
-            <p>Introduce los siguientes datos para que podamos conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
-            <button>Iniciar sesión</button>
+            <h1 style="font-family: 'Oswald'; font-size: 36px;" >REGISTRO DEL LOCAL</h1>
+            <h2 style="font-family: 'Oswald'; font-size: 36px;">¡BIENVENIDO A BiteFinder!</h2>
+            <p style="font-family: 'Oswald'; font-size: 26px;">Introduce los siguientes datos para que podamos conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
+            <button class="btn btn-dark" style="font-family: 'Oswald'; font-size: 26px;">Iniciar sesión</button>
             
-            <form class="user-form">
-                <label for="nombreJefe">Nombre jefe</label>
-                <input type="text" id="nombreJefe" placeholder="¿Cómo quieres que te conozcan?">
+            <form class="user-form m-4">
+                <label for="nombreJefe" style="font-family: 'Oswald'; font-size: 26px;" >Nombre jefe</label>
+                <input type="text" id="nombreJefe" placeholder="¿Cómo quieres que te conozcan?" style="font-family: 'Oswald'; font-size: 20px;" >
 
                 <div class="input-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Ingrese su nombre">
+                    <label for="nombre" style="font-family: 'Oswald'; font-size: 26px;">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Ingrese su nombre" style="font-family: 'Oswald'; font-size: 20px;">
                 </div>
 
                 <div class="input-group">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" placeholder="Ingrese su apellido">
+                    <label for="apellido" style="font-family: 'Oswald'; font-size: 26px;">Apellido</label>
+                    <input type="text" id="apellido" placeholder="Ingrese su apellido" style="font-family: 'Oswald'; font-size: 20px;">
                 </div>
 
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" placeholder="usuario@bitemail.com">
+                <label for="correo" style="font-family: 'Oswald'; font-size: 26px;">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="usuario@bitemail.com" style="font-family: 'Oswald'; font-size: 20px;">
 
-                <label for="contrasena">Contraseña</label>
-                <input type="password" id="contrasena" placeholder="#.pizza?@">
+                <label for="contrasena" style="font-family: 'Oswald'; font-size: 26px;">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="#.pizza?@" style="font-family: 'Oswald'; font-size: 20px;">
 
-                <p>Ingresa al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.</p>
-                <button type="submit">Enviar</button>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Ingresa al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.</p>
+                <button class="btn btn-dark" type="submit" style="font-family: 'Oswald'; font-size: 20px;">Enviar</button>
             </form>
         </section>
 
@@ -102,5 +127,6 @@
     <footer>
         <p>Texto de muestra. Haz click para seleccionar el elemento de Texto.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
