@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lithop21
+      POSTGRES_DB: BiteFinder
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: node_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+    environment:
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: lithop21
+      DB_NAME: BiteFinder
+    volumes:
+      - ./backend:/app
+
+networks:
+  mynetwork:
+    driver: bridge
