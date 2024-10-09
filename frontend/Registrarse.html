@@ -47,12 +47,12 @@
     </nav>
 
     <!-- Main Section -->
-    <main>
+    <main style="background-color: #337ab7;">
         <section class="register-section">
             <h1 style="font-family: 'Oswald'; font-size: 36px;" >REGISTRO DEL LOCAL</h1>
             <h2 style="font-family: 'Oswald'; font-size: 36px;">¡BIENVENIDO A BiteFinder!</h2>
             <p style="font-family: 'Oswald'; font-size: 26px;">Introduce los siguientes datos para que podamos conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
-            <button class="btn btn-dark" style="font-family: 'Oswald'; font-size: 26px;">Iniciar sesión</button>
+            <button class="btn btn-primary" style="font-family: 'Oswald'; font-size: 26px;">Iniciar sesión</button>
             
             <form class="user-form m-4">
                 <label for="nombreJefe" style="font-family: 'Oswald'; font-size: 26px;" >Nombre jefe</label>
@@ -75,50 +75,50 @@
                 <input type="password" id="contrasena" placeholder="#.pizza?@" style="font-family: 'Oswald'; font-size: 20px;">
 
                 <p style="font-family: 'Oswald'; font-size: 20px;">Ingresa al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial.</p>
-                <button class="btn btn-dark" type="submit" style="font-family: 'Oswald'; font-size: 20px;">Enviar</button>
+                <button class="btn btn-primary" type="submit" style="font-family: 'Oswald'; font-size: 20px;">Enviar</button>
             </form>
         </section>
 
         <section class="local-section">
-            <h2>Agregue datos de su local:</h2>
+            <h2 style="font-family: 'Oswald'; font-size: 36px;">Agregue datos de su local:</h2>
             <form class="local-form">
                 <div class="input-group">
-                    <label for="emailContacto">Email de contacto</label>
-                    <input type="email" id="emailContacto" placeholder="Enter a valid email address">
+                    <label for="emailContacto" style="font-family: 'Oswald'; font-size: 26px;">Email de contacto</label>
+                    <input type="email" id="emailContacto" placeholder="Ingrese un correo electrónico válido" style="font-family: 'Oswald'; font-size: 20px;">
                 </div>
 
                 <div class="input-group">
-                    <label for="nombreRestaurante">Nombre del restaurante</label>
-                    <input type="text" id="nombreRestaurante" placeholder="Enter your Name">
+                    <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Nombre del restaurante</label>
+                    <input type="text" id="nombreRestaurante" placeholder="Ingrese el nombre del local" style="font-family: 'Oswald'; font-size: 20px;">
                 </div>
 
-                <label for="descripcion">Descripción del local</label>
-                <textarea id="descripcion" placeholder="Describe tu local"></textarea>
+                <label for="descripcion" style="font-family: 'Oswald'; font-size: 26px;">Descripción del local</label>
+                <textarea id="descripcion" placeholder="Describe tu local" style="font-family: 'Oswald'; font-size: 20px;"></textarea>
 
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" placeholder="+14155552675">
+                <label for="telefono" style="font-family: 'Oswald'; font-size: 26px;">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+14155552675" style="font-family: 'Oswald'; font-size: 20px;">
 
-                <label for="url">URL</label>
-                <input type="url" id="url" placeholder="Ingrese su URL (opcional)">
+                <label for="url" style="font-family: 'Oswald'; font-size: 26px;">URL</label>
+                <input type="url" id="url" placeholder="Ingrese su URL (opcional)" style="font-family: 'Oswald'; font-size: 20px;">
 
-                <label for="tiempoComidas">Tiempo comidas</label>
+                <label for="tiempoComidas" style="font-family: 'Oswald'; font-size: 26px;">Tiempo comidas</label>
                 <input type="time" id="tiempoComidas">
 
-                <label for="tiempoCenas">Tiempo cenas</label>
+                <label for="tiempoCenas" style="font-family: 'Oswald'; font-size: 26px;">Tiempo cenas</label>
                 <input type="time" id="tiempoCenas">
 
-                <label for="capacidadMesa">Capacidad máxima mesa</label>
+                <label for="capacidadMesa" style="font-family: 'Oswald'; font-size: 26px;">Capacidad máxima mesa</label>
                 <input type="number" id="capacidadMesa" value="0">
 
-                <label for="capacidadSala">Capacidad máxima sala</label>
+                <label for="capacidadSala" style="font-family: 'Oswald'; font-size: 26px;">Capacidad máxima sala</label>
                 <input type="number" id="capacidadSala" value="0">
 
                 <div class="file-upload">
-                    <label for="imagenLocal">Inserta fotografías del local, menú, carta, etc:</label>
+                    <label for="imagenLocal" style="font-family: 'Oswald'; font-size: 26px;">Inserta fotografías del local, menú, carta, etc:</label>
                     <input type="file" id="imagenLocal">
                 </div>
 
-                <button type="submit">Guardar local</button>
+                <button type="submit" class="btn btn-primary" style="font-family: 'Oswald'; font-size: 20px;">Guardar local</button>
             </form>
         </section>
     </main>
