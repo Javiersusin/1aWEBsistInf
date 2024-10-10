@@ -1,20 +1,6 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres:15
-    container_name: postgres_db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: lithop21
-      POSTGRES_DB: BiteFinder
-    ports:
-      - "5432:5432"
-    volumes:
-      - D:/docker/pgdata:/var/lib/postgresql/data  # Ruta absoluta en el disco D
-    networks:
-      - mynetwork
-
   backend:
     build:
       context: ./backend
@@ -22,15 +8,14 @@ services:
     container_name: node_backend
     ports:
       - "3000:3000"
-    depends_on:
-      - db
     networks:
       - mynetwork
     environment:
-      DB_HOST: db
-      DB_USER: postgres
-      DB_PASSWORD: lithop21
-      DB_NAME: BiteFinder
+      DB_HOST: aws-0-eu-west-3.pooler.supabase.com
+      DB_PORT: 6543
+      DB_USER: postgres.mxvqxeylelrehqjwbxmx
+      DB_PASSWORD: BiteFinderlithop21
+      DB_NAME: postgres
     volumes:
       - ./backend:/app
 

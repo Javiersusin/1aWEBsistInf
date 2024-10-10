@@ -16,7 +16,7 @@ app.use('/api', authRoutes);
 
 // Usar la ruta que permite añadir elementos a la BD
 //app.use('/api', addRoutes);
-
+/*
 // Configurar la conexión a PostgreSQL
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
@@ -24,7 +24,7 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD || 'lithop21',
   database: process.env.DB_NAME || 'BiteFinder',
   port: 5432,
-});
+});*/
 
 app.get('/', (req, res) => {
   res.send('Bienvenido al backend');
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });
-module.exports = pool;
+//module.exports = pool;
 
 
 /*PS D:\One Drive\OneDrive\Escritorio\SIST-inf-1AWEB> docker ps
