@@ -42,13 +42,16 @@
                 </h1>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Inicio.html">Inicio</a>
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="Inicio.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Contacto.html">Contacto</a>
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="Contacto.html">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Informacion+.html">+Información</a>
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="Informacion+.html">+Información</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +60,7 @@
 
     <!-- Seccion hero -->
     <section class="container-fluid hero-section"
-        style="height: calc(30vh - 80px); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden;">
+        style="height: calc(40vh - 80px); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden;">
         <!-- Imagen de fondo con pseudo-elemento -->
         <div class="background-image"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./img/fondoInicio.jpg'); background-size: cover; background-position: center;  filter: brightness(50%);">
@@ -67,9 +70,11 @@
             <div class="col" style="color: rgb(255, 255, 255);">
                 <!-- Caja con color que incluye a h2 -->
                 <div class="caja-subtitulo">
-                        <h2 style="font-family: 'Oswald'; font-size: 36px;">La vida no es para llevar, <br> es para comer aquí</h2>
+                    <h2 style="font-family: 'Oswald'; font-size: 36px;">La vida no es para llevar, <br> es para comer
+                        aquí</h2>
                 </div>
-                <p style="font-family: 'Oswald'; font-size: 20px;">Explora los mejores lugares para comer cerca de ti.</p>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Explora los mejores lugares para comer cerca de ti.
+                </p>
             </div>
         </div>
     </section>
@@ -128,7 +133,8 @@
     <!-- Los mejores de la semana Carrusel-->
     <section class="container-fluid" style="padding: 2rem; background-color: rgb(35,35,35);">
         <div class=caja-subtitulo>
-            <h2 class="titulo" style="font-family: 'Oswald'; font-size: 30px; color: white;">Elige lo que te apetece</h2>
+            <h2 class="titulo" style="font-family: 'Oswald'; font-size: 30px; color: white;">Elige lo que te apetece
+            </h2>
         </div>
         <div class="buscador">
             <nav class="navbar navbar-light" style="border-radius:10px; background-color: rgb(255, 255, 255);">
@@ -209,78 +215,66 @@
 
     <hr>
 
-    <!-- <div class="food-section">
-        <h2>Comidas</h2>
-        <div class="food-container">
-            <div class="food-item">
-                <img src="img/pasta.jpg" alt="Pasta" class="card-img-top">
-                <div class="overlay">PASTA</div>
-                <div class="arrow left">&lt;</div>
-            </div>
-            <div class="food-item">
-                <img src="img/ensalada.jpeg" alt="Ensaladas" class="card-img-top">
-                <div class="overlay">ENSALADAS</div>
-            </div>
-            <div class="food-item">
-                <img src="img/carne.jpeg" alt="Carnes" class="card-img-top">
-                <div class="overlay">CARNES</div>
-                <div class="arrow right">&gt;</div>
-            </div>
-        </div>
-    </div> -->
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/carne.jpeg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+    <!-- Seccion de tipos de comida -->
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="menu">
+            <h1>¿Qué te apetece?</h1>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="img/" alt="Pizza">
+                    <h2>Pizzas</h2>
+                    <button>Ver más</button>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/ensalada.jpeg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                <div class="menu-item">
+                    <img src="path_to_image/ensalada.jpg" alt="Ensalada">
+                    <h2>Ensaladas</h2>
+                    <button>Ver más</button>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/pasta.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                <div class="menu-item">
+                    <img src="path_to_image/croissant.jpg" alt="Repostería">
+                    <h2>Repostería</h2>
+                    <button>Ver más</button>
+                </div>
+                <div class="menu-item">
+                    <img src="path_to_image/coctel.jpg" alt="Cócteles">
+                    <h2>Cócteles</h2>
+                    <button>Ver más</button>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+        <div class="item-details">
+            <div class="item-detail">
+                <img src="path_to_image/croissant.jpg" alt="Croissant">
+                <p>$4</p>
+                <p>Croissant with topping</p>
+            </div>
+            <div class="item-detail">
+                <img src="path_to_image/ensalada.jpg" alt="Ensalada mediterránea">
+                <p>14€</p>
+                <p>Ensalada mediterránea</p>
+            </div>
+        </div>
+    </body>
 
-
+    </html>
 
 
     <hr>
 
 
 
-
+    <!-- Seccion de contacto -->
     <div class="contact-section">
         <div>
             <div class="icon">
@@ -288,7 +282,8 @@
             </div>
             <h3 style="font-family: 'Oswald'; font-size: 30px;">CONTÁCTANOS</h3>
             <p style="font-family: 'Oswald'; font-size: 20px;">Nuestro equipo está para ayudar</p>
-            <a href="mailto:admin@BiteFinder.com" style="font-family: 'Oswald'; font-size: 20px;">admin@BiteFinder.com</a>
+            <a href="mailto:admin@BiteFinder.com"
+                style="font-family: 'Oswald'; font-size: 20px;">admin@BiteFinder.com</a>
         </div>
         <div>
             <div class="icon">
@@ -296,7 +291,8 @@
             </div>
             <h3 style="font-family: 'Oswald'; font-size: 30px;">OFICINA</h3>
             <p style="font-family: 'Oswald'; font-size: 20px;">Nuestras oficinas en caso de dudas</p>
-            <p><a href="https://maps.google.com/?q=Avenida%20Paraíso%20nº14" target="_blank" style="font-family: 'Oswald'; font-size: 20px;">Avenida Paraíso nº14</a>
+            <p><a href="https://maps.google.com/?q=Avenida%20Paraíso%20nº14" target="_blank"
+                    style="font-family: 'Oswald'; font-size: 20px;">Avenida Paraíso nº14</a>
             </p>
         </div>
         <div>
