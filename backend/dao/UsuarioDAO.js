@@ -36,6 +36,18 @@ class UsuarioDAO {
       throw error;
     }
   }
+
+  // Método para crear un nuevo usuario
+  static async createUser(username, email, tipoUsuario, password) {
+    try {
+      const result = await pool.query('INSERT INTO usuarios (nombre, correo, contrasena, tipoUsuario) VALUES ($1, $2, $3, $4)', [username, email, password, tipoUsuario]);
+      return result;  // Devuelve el resultado de la inserción
+    } catch (error) {
+      console.error('Error al crear el usuario:', error);
+      throw error;
+    }
+  }
+
 }
 
 module.exports = UsuarioDAO;

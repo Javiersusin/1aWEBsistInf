@@ -5,7 +5,6 @@ INSERT INTO Usuarios (nombre, correo, contrasena, tipoUsuario) VALUES
 ('Juan', 'juan@example.com', 'juanpass', 'cliente'),
 ('Ana', 'ana@example.com', 'anasecure', 'cliente');
 
-
  INSERT INTO restaurante (jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre) VALUES
  ('Carlos', 50, 'fotos/carlos_restaurante.jpg', 'http://carlosrestaurante.com', 123456789, 'Delicious Spanish cuisine', 500, 'info@carlosrestaurante.com', 'Carlos Restaurante');
 INSERT INTO restaurante (jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre) VALUES
