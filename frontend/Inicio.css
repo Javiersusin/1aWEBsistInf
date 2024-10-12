@@ -87,7 +87,7 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
     margin: 3px;
 }
 
-.buscador {
+/* .buscador {
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -113,7 +113,7 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
 
 .carruselTipos .col-md-4 {
     margin: 10px;
-}
+} */
 
 
 .Cabecera-calses {
