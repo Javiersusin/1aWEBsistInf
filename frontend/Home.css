@@ -194,3 +194,11 @@ footer {
     color: #d4ff00;
     text-decoration: none;
 }
+
+.enlace-inicio {
+    /* Hacer que aparezca en la esquina infrerior izquierda de su tarjeta y sin que aparezcan pegados al texto de encima*/
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    padding: 20px;
+}
