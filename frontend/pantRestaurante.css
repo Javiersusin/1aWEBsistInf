@@ -113,3 +113,17 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
     font-size: 18px;
     padding: 0.5rem 1.5rem;
 }
+
+.row {
+    margin: 2rem 0;
+}
+
+.imagen_cabecera {
+    /*hacer que la altura de las columnas sea igual*/
+    display: flex;
+    max-height: 415px;
+    /*hacer que la imagen se ajuste al tamaño de la columna*/
+    object-fit: cover;
+    /*hacer que la imagen no se deforme*/
+    object-position: center;
+}
