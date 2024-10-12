@@ -13,46 +13,59 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgb(38, 48, 182);
-  text-align: center; /* Para centrar el texto dentro del contenedor */
+  text-align: center;
+  /* Para centrar el texto dentro del contenedor */
 }
 
 input {
   display: block;
-  width: 90%; /*el input ocupa casi todo el ancho disponible*/
-  margin: 10px auto; /* Centra los inputs dentro del formulario */
+  width: 90%;
+  /*el input ocupa casi todo el ancho disponible*/
+  margin: 10px auto;
+  /* Centra los inputs dentro del formulario */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 button {
-  width: 100%; /* Hace que el botón ocupe todo el ancho del formulario */
+  width: 100%;
+  /* Hace que el botón ocupe todo el ancho del formulario */
   padding: 10px;
   background-color: #305cb4;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px; /* Añade un margen para separar el botón del resto de los inputs */
+  margin-top: 10px;
+  /* Añade un margen para separar el botón del resto de los inputs */
 }
 
 /* .Enlace{
   margin-top: 20px;
 } */
 .Enlace {
-  color: rgb(41, 0, 128); /* Color del texto */
-  text-decoration: none; /* Elimina el subrayado */
-  font-weight: bold; /* Negrita */
+  color: rgb(41, 0, 128);
+  /* Color del texto */
+  text-decoration: none;
+  /* Elimina el subrayado */
+  font-weight: bold;
+  /* Negrita */
   margin-top: 20px;
   /* //padding: 20px 0; Espacio superior e inferior */
-  display: block; /* Hace que ocupe toda la línea */
-  text-align: center; /* Centra el texto */
-  transition: color 0.3s ease; /* Animación suave para el cambio de color */
+  display: block;
+  /* Hace que ocupe toda la línea */
+  text-align: center;
+  /* Centra el texto */
+  transition: color 0.3s ease;
+  /* Animación suave para el cambio de color */
 }
 
 .Enlace:hover {
-  color: #0056b3; /* Color cuando se pasa el ratón por encima */
-  text-decoration: underline; /* Subrayado en hover */
+  color: #0056b3;
+  /* Color cuando se pasa el ratón por encima */
+  text-decoration: underline;
+  /* Subrayado en hover */
 }
 
 

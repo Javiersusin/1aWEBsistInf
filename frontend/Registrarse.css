@@ -37,7 +37,8 @@ main {
     padding: 2rem;
 }
 
-.register-section, .local-section {
+.register-section,
+.local-section {
     margin-bottom: 2rem;
     background-color: #000000;
     padding: 2rem;
@@ -83,13 +84,15 @@ form {
     flex-direction: column;
 }
 
-input, textarea {
+input,
+textarea {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     align-self: flex-start;
 }
 
@@ -105,4 +108,41 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
 }

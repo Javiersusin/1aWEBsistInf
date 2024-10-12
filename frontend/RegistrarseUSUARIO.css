@@ -37,10 +37,12 @@ nav ul li a {
     font-size: 1.2rem;
     color: black;
 }
+
 .navbar-brand img {
     font-size: 1.5rem;
     border-radius: 20%;
-} 
+}
+
 .registro {
     text-align: center;
     background-color: #333333;
@@ -157,4 +159,40 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
     .navbar-titulo {
         text-align: center;
     }
+}
+
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
 }
