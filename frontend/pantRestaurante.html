@@ -9,7 +9,7 @@
   <!--Favicon-->
   <link rel="icon" type="image/x-icon" href="./img/favicon.png">
   <!-- Archivo CSS-->
-  <link href="pantPrincipal.css" rel="stylesheet">
+  <link href="pantRestaurante.css" rel="stylesheet">
   <!--Fuentes de letras-->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
@@ -45,92 +45,67 @@
     </div>
   </nav>
 
-  <section class="container-fluid">
+  <section class="container-fluid section-content">
     <div class="row">
-      <div class="col-6">
-        <img src="./img/12525.jpg" alt="Un camarero atendiendo una mesa" width="100%" height="100%">
+      <div class="col-md-6 image-container">
+        <img src="./img/12525.jpg" alt="Un camarero atendiendo una mesa" class="img-fluid">
       </div>
-      <div class="col-1">
-
-      </div>
-      <div class="col-5" style="text-align: center">
-        <div class="u-container-layout u-container-layout-2" style="width: 50%;">
-          <h2 class="u-align-center u-text u-text-default u-text-1">Encuéntrenos<br>
-          </h2>
-          <h5 class="u-align-center u-text u-text-default-lg u-text-default-md u-text-default-xl u-text-2">dónde</h5>
-          <p class="u-align-center u-text u-text-default u-text-3">676 Pacific C Highway<br>Huntington Beach, CA 67898
-          </p>
-          <a href="#mapa" class="u-align-center u-btn u-button-style u-btn-1">Ver mapa<br>
-          </a>
-          <a href="#reservar"
-            class="u-align-center u-black u-border-2 u-border-black u-btn u-button-style u-btn-2">Reservar una mesa<br>
-          </a>
-          <h5 class="u-align-center u-text u-text-default u-text-4">cuando</h5>
-          <p class="u-align-center u-text u-text-default u-text-5">Lunes a viernes<br>7:00 a 18:00 horas<br>
-            <br>Sábado/domingo<br>8:00 a 18:00 horas
-          </p>
+      <div class="col-md-6">
+        <div class="info-box">
+          <h2><b>Encuéntrenos</b></h2>
+          <!-- <h4>dónde</h5> -->
+          <p>676 Pacific C Highway<br>Huntington Beach, CA 67898</p>
+          <a href="#mapa" class="btn btn-primary btn-custom">Ver mapa</a>
+          <a href="#reservar" class="btn btn-outline-dark btn-custom">Reservar una mesa</a>
+          <h5>cuando</h5>
+          <p>Lunes a viernes<br>7:00 a 18:00 horas<br>Sábado/domingo<br>8:00 a 18:00 horas</p>
         </div>
       </div>
     </div>
   </section>
 
-
-
-  <p>
-  <div class="container-fluid">
-    <div class="embed-responsive" id="mapa">
+  <div class="container-fluid map-container" id="mapa">
+    <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item"
         src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
         data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe>
     </div>
   </div>
-  </p>
 
-  <p>
-  <div class="row">
-    <div class="col-6" style=" text-align: center">
-      <div
-        class="u-container-align-center-lg u-container-align-center-md u-container-align-center-sm u-container-align-center-xl u-container-style u-grey-60 u-layout-cell u-size-30 u-layout-cell-1"
-        data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="0">
-        <div class="u-container-layout u-valign-middle u-container-layout-1">
-          <h2 class="u-align-center u-text u-text-default u-text-1">Consultas</h2>
-          <h5 class="u-align-center u-text u-text-default-lg u-text-default-md u-text-default-xl u-text-2">CONSULTAS DE
-            RR.PP. Y MARKETING</h5>
-          <p class="u-align-center u-text u-text-default u-text-3">+1 234 567 77 66<br>
-          </p>
-          <h5
-            class="u-align-center u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-4">
-            CONSULTAS DE CATERING</h5>
-          <p class="u-align-center u-text u-text-default u-text-5"> +1 234 567 77 66</p>
-          <h5 class="u-align-center u-text u-text-default u-text-6">RESERVAS $ CENA PRIVADA</h5>
-          <p class="u-align-center u-text u-text-default u-text-7"> +1 234 567 77 66</p>
-        </div>
+  <section class="container-fluid section-content">
+    <div class="row">
+      <div class="col-md-6 contact-info">
+        <h2><b><u>Consultas</u></b></h2>
+        <h6>CONSULTAS DE RR.PP. Y MARKETING</h5>
+          <p>+1 234 567 77 66</p>
+          <h6>CONSULTAS DE CATERING</h5>
+            <p>+1 234 567 77 66</p>
+            <h6>RESERVAS Y CENAS PRIVADAS</h5>
+              <p>+1 234 567 77 66</p>
+      </div>
+      <div class="col-md-6 image-container">
+        <img src="./img/1669.jpg" alt="Un camarero atendiendo una mesa" class="img-fluid">
       </div>
     </div>
+  </section>
+  <section class="container-fluid section-content reservation-section" id="reservar">
+    <h2>Reserva</h2>
+    <p>Reserva tu mesa para una experiencia gastronómica inolvidable.</p>
+    <a href="#scrollspyHeading4" class="btn btn-primary btn-custom">Haz tu reserva</a>
+  </section>
 
-    <div class="col-1">
-
-    </div>
-    <div class="col-5 align-items-center">
-      <img src="./img/1669.jpg" alt="Un camarero atendiendo una mesa" width="100%" height="100%">
-    </div>
-  </div>
-  </p>
-  <p>
-  <div class="row" id="reservar">
-    <div class="col-3" style=" text-align: center">
-      RESERVA
-    </div>
-  </div>
-  </p>
-  <h4 id="scrollspyHeading4">Fourth heading</h4>
-  <p>...</p>
-  <h4 id="scrollspyHeading5">Fifth heading</h4>
-  <p>...</p>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
 </body>
+
+
+
+
+
+
+
+
 
 </html>
