@@ -105,4 +105,83 @@ router.post('/user', async (req, res) => {
 // });
 
 
+//Archivo RestauranteDAO.js
+
+class RestauranteDAO{
+    // Método para crear un nuevo usuario
+  static async createRestaurante(idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre) {
+    try {
+      const result = await pool.query('INSERT INTO restaurante (idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre]);
+      return result;  // Devuelve el resultado de la inserción
+    } catch (error) {
+      console.error('Error al crear el restaurante:', error);
+      throw error;
+    }
+  }
+}
+
+
+ //en el archivo add.js
+ //Ademas deberia de descomentar las lineas de const Restaurante...
+// Ruta para agregar un nuevo usuario (esto no hace fallar)
+router.post('/restaurante', async (req, res) => {
+    const { idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre } = req.body;
+    
+    try {
+        // Si el usuario no existe, crear un nuevo usuario en la base de datos
+        const result = await RestauranteDAO.createUser(idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre);
+        
+        res.status(201).json({ message: 'Restaurante registrado exitosamente', restauranteId: result.insertId });
+
+    } catch (error) {
+        console.error('Error al registrar el usuario:', error);
+        res.status(500).json({ error: 'Error al registrar el usuario' });
+    }
+});
+
+module.exports = RestauranteDAO;
+
+
+// //Dentro del script del html añadir esto
+// document.getElementById('restRegistro').addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     // Obtener los valores de usuario y contraseña
+//     const idRestaurante = document.getElementById('idRestaurante').value;
+//     const jefe = document.getElementById('jefe').value;
+//     const aforo = document.getElementById('aforo').value;
+//     const fotos = document.getElementById('fotos').value;
+//     const URLweb = document.getElementById('URLweb').value;
+//     const telefono = document.getElementById('telefono').value;
+//     const descripcion = document.getElementById('descripcion').value;
+//     const visitas = document.getElementById('visitas').value;
+//     const email = document.getElementById('email').value;
+//     const nombre = document.getElementById('nombre').value;
+
+//     // Enviar la información al backend, definiendo ruta en la que me lee en puerto local
+//     try {
+//       const response = await fetch('http://localhost:3000/api/restaurant', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre})
+//       });
+
+//       // Procesar la respuesta
+//       const data = await response.json();
+//       if (response.ok) {
+//         // Si el registro es exitoso
+//         alert('Registro del local exitoso');
+//         window.location.href = './Inicio.html';
+//       } else {
+//         // Si la autenticación falla
+//         alert(data.message);
+//       }
+//     } catch (error) {
+//       console.error('Error en el registro del restaurante:', error);
+//     }
+//   });
+
+
 module.exports = router;
