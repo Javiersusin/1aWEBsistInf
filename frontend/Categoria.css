@@ -1,0 +1,196 @@
+/*Barra de Navegacion*/
+/* .navbar{
+    padding: 2rem;
+    background-color: rgb(243, 227, 52);
+} */
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item:hover {
+    background-color: #adbd19;
+    border-radius: 10px;
+}
+
+.u-map {
+    width: 100%;
+    height: 100%;
+    /* Puedes ajustar la altura según tus necesidades */
+}
+
+iframe {
+    border-color: black;
+
+    width: 100%;
+    height: 500px;
+}
+
+/*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
+Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
+@media screen and (max-width: 767px) {
+    .navbar-brand {
+        display: none;
+    }
+
+    .navbar-titulo {
+        text-align: center;
+    }
+}
+
+.caja-subtitulo {
+    width: 50%;
+    /* Center the element */
+    margin: auto;
+    margin-bottom: 15px;
+    /* Less horizontal padding */
+    padding: 1rem;
+    background-color: #3c3d36b1;
+    border-radius: 10px;
+}
+
+
+.Cabecera-calses {
+    color: white;
+    text-align: center;
+}
+
+hr {
+    height: 2px;
+    background-color: rgb(35, 35, 35);
+    padding: 0;
+    margin: 0;
+}
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
+}
+
+
+
+
+
+/* Carrousel vertical con todos los locales */
+/* Vertical con todos los locales */
+.restaurantes {
+    background-size: cover;
+    background-color: rgb(35, 35, 35);
+    /* Add a dark overlay */
+    background-blend-mode: darken;
+    /* Blend the overlay with the image */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.restaurant-cards {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.212);
+    border-radius: 20px;
+    /* Enable vertical scrolling */
+    max-height: 70vh;
+    /* Set maximum height for the scrollable area */
+    padding: 10px 0;
+    margin: 20px auto;
+}
+
+.restaurant-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 22%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    flex: auto;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: auto;
+}
+
+.restaurant-info {
+    padding: 15px;
+}
+
+.restaurant-name {
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+}
+
+.restaurant-description {
+    font-size: 1em;
+    margin: 0 0 10px 0;
+}
+
+.restaurant-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.restaurant-button:hover {
+    background-color: #e68a00;
+}
+
+@media (max-width: 1200px) {
+    .restaurant-card {
+        width: 30%;
+    }
+}
+
+@media (max-width: 900px) {
+    .restaurant-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .restaurant-card {
+        width: 100%;
+    }
+}
