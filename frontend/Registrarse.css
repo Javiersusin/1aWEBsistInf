@@ -146,3 +146,73 @@ footer {
     color: #d4ff00;
     text-decoration: none;
 }
+.horarios {
+    margin-top: 30px;
+    background-color: #444; /* Fondo más oscuro para destacar */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #fff; /* Borde blanco */
+}
+
+.horarios h3 {
+    font-family: 'Oswald';
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.dia-horario {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dia-horario h4 {
+    flex: 1 100%;
+    font-family: 'Oswald';
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.dia-horario label {
+    font-family: 'Oswald';
+    font-size: 18px;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.dia-horario input[type="time"] {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+    position: relative;
+    appearance: none; /* Oculta el ícono predeterminado */
+}
+
+.dia-horario input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0; /* Oculta el ícono predeterminado del navegador */
+}
+
+/* Añadir flecha hacia abajo al final del campo */
+.dia-horario input[type="time"]::after {
+    content: '\25BC'; /* Código Unicode para la flecha hacia abajo */
+    font-size: 14px;
+    color: #555; /* Color de la flecha */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Evita interferencias con los clics */
+}
+
+

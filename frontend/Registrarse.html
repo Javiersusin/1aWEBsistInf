@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="autor" content="Diego Simon">
+    <meta name="autor" content="Javier Susin">
     <meta name="description" content="Pantalla destinada al registro de un local nuevo para la aplicación BiteFinder">
     <meta name="keywords" content="HTML, CSS, JavaScript">
 
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
     <!--Fuentes de letras-->
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
-    <title>BiteFinder Registro</title>
+    <title>Registro jefe - BiteFinder</title>
     <link rel="stylesheet" href="RegistrarseUSUARIO.css">
     <link rel="stylesheet" href="Registrarse.css">
 </head>
@@ -32,9 +32,9 @@
                 <a class="navbar-brand">
                     <img src="./img/favicon.png" width="100px" alt="Logo de BiteFinder">
                 </a>
-                <h1 class="navbar-titulo" style="font-family: 'Lobster'; font-size: 60px;">
+                <h1 class="navbar-titulo" style="font-family: 'Lobster'; font-size: 60px; position: absolute; left: 50%; transform: translateX(-50%); text-align: center;">
                     BiteFinder
-                </h1>
+                  </h1>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
@@ -61,22 +61,14 @@
             <h2 style="font-family: 'Oswald'; font-size: 36px;">¡BIENVENIDO A BiteFinder!</h2>
             <p style="font-family: 'Oswald'; font-size: 26px;">Introduce los siguientes datos para que podamos
                 conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
-            <button class="btn btn-primary" style="font-family: 'Oswald'; font-size: 26px;">Iniciar sesión</button>
-
+            <a class="Enlace" href="IniciarSesion.html" style="font-family: 'Oswald'; font-size: 26px;">
+                <button class="btn btn-primary" >Iniciar sesión</button>
+            </a>
             <form class="user-form m-4">
-                <label for="nombreJefe" style="font-family: 'Oswald'; font-size: 26px;">Nombre jefe</label>
-                <input type="text" id="nombreJefe" placeholder="¿Cómo quieres que te conozcan?"
-                    style="font-family: 'Oswald'; font-size: 20px;">
-
+               
                 <div class="input-group">
                     <label for="nombre" style="font-family: 'Oswald'; font-size: 26px;">Nombre</label>
                     <input type="text" id="nombre" placeholder="Ingrese su nombre"
-                        style="font-family: 'Oswald'; font-size: 20px;">
-                </div>
-
-                <div class="input-group">
-                    <label for="apellido" style="font-family: 'Oswald'; font-size: 26px;">Apellido</label>
-                    <input type="text" id="apellido" placeholder="Ingrese su apellido"
                         style="font-family: 'Oswald'; font-size: 20px;">
                 </div>
 
@@ -95,56 +87,7 @@
             </form>
         </section>
 
-        <section class="local-section">
-            <h2 style="font-family: 'Oswald'; font-size: 36px;">Agregue datos de su local:</h2>
-            <form class="local-form">
-                <div class="input-group">
-                    <label for="emailContacto" style="font-family: 'Oswald'; font-size: 26px;">Email de contacto</label>
-                    <input type="email" id="emailContacto" placeholder="Ingrese un correo electrónico válido"
-                        style="font-family: 'Oswald'; font-size: 20px;">
-                </div>
-
-                <div class="input-group">
-                    <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Nombre del
-                        restaurante</label>
-                    <input type="text" id="nombreRestaurante" placeholder="Ingrese el nombre del local"
-                        style="font-family: 'Oswald'; font-size: 20px;">
-                </div>
-
-                <label for="descripcion" style="font-family: 'Oswald'; font-size: 26px;">Descripción del local</label>
-                <textarea id="descripcion" placeholder="Describe tu local"
-                    style="font-family: 'Oswald'; font-size: 20px;"></textarea>
-
-                <label for="telefono" style="font-family: 'Oswald'; font-size: 26px;">Teléfono</label>
-                <input type="tel" id="telefono" placeholder="+14155552675"
-                    style="font-family: 'Oswald'; font-size: 20px;">
-
-                <label for="url" style="font-family: 'Oswald'; font-size: 26px;">URL</label>
-                <input type="url" id="url" placeholder="Ingrese su URL (opcional)"
-                    style="font-family: 'Oswald'; font-size: 20px;">
-
-                <label for="tiempoComidas" style="font-family: 'Oswald'; font-size: 26px;">Tiempo comidas</label>
-                <input type="time" id="tiempoComidas">
-
-                <label for="tiempoCenas" style="font-family: 'Oswald'; font-size: 26px;">Tiempo cenas</label>
-                <input type="time" id="tiempoCenas">
-
-                <label for="capacidadMesa" style="font-family: 'Oswald'; font-size: 26px;">Capacidad máxima mesa</label>
-                <input type="number" id="capacidadMesa" value="0">
-
-                <label for="capacidadSala" style="font-family: 'Oswald'; font-size: 26px;">Capacidad máxima sala</label>
-                <input type="number" id="capacidadSala" value="0">
-
-                <div class="file-upload">
-                    <label for="imagenLocal" style="font-family: 'Oswald'; font-size: 26px;">Inserta fotografías del
-                        local, menú, carta, etc:</label>
-                    <input type="file" id="imagenLocal">
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="font-family: 'Oswald'; font-size: 20px;">Guardar
-                    local</button>
-            </form>
-        </section>
+        
     </main>
 
 
@@ -182,6 +125,70 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+    
+          // Obtener los valores ingresados por el usuario en el formulario
+          const username = document.getElementById('nombre').value;
+          const email = document.getElementById('correo').value;
+          const tipoUsuario = "jefe";
+          const password = document.getElementById('contrasena').value;
+    
+          // Validación simple de campos vacíos
+          if (!username || !email || !password) {
+            alert('Todos los campos son obligatorios');
+            return;
+          }
+    
+          // Validación de la longitud de la contraseña
+          if (password.length < 8) {
+            alert('La contraseña debe tener al menos 8 caracteres');
+            return;
+          }
+    
+          // Validación de formato de contraseña (al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial)
+          //   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          //   if (!passwordRegex.test(password)) {
+          //     alert('La contraseña debe contener al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial');
+          //     return;
+          //   }
+    
+          // Enviar la información al backend para registrar el usuario
+          try {
+            const response = await fetch('http://localhost:3000/api/user', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ username, email, tipoUsuario, password })
+            });
+    
+            const data = await response.json();
+    
+            // Manejo de la respuesta del servidor
+            if (response.ok) {
+              alert('Usuario registrado exitosamente');
+              window.location.href = './FormLocal.html'; // Redirigir al inicio o donde desees
+            } else if (response.status === 409) {
+              alert('El nombre de usuario ya está en uso. Por favor, elige otro.');
+            } else {
+              alert(`Error: ${data.message || 'Fallo al registrar usuario'}`);
+            }
+          } catch (error) {
+            console.error('Error en el registro del usuario:', error);
+            alert('Error en el registro del usuario');
+          }
+        });
+      </script>
+    
+
+
+
 </body>
 
 </html>
