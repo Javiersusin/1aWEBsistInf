@@ -57,7 +57,7 @@
     <!-- Main Section -->
     <main style="background-color: #337ab7;">
         <section class="register-section">
-            <h1 style="font-family: 'Oswald'; font-size: 36px;">REGISTRO DEL LOCAL</h1>
+            <h1 style="font-family: 'Oswald'; font-size: 36px;">REGISTRO DEL JEFE</h1>
             <h2 style="font-family: 'Oswald'; font-size: 36px;">¡BIENVENIDO A BiteFinder!</h2>
             <p style="font-family: 'Oswald'; font-size: 26px;">Introduce los siguientes datos para que podamos
                 conocernos mejor. Si ya te has registrado anteriormente, prueba a iniciar sesión aquí:</p>
@@ -135,6 +135,7 @@
     
           // Obtener los valores ingresados por el usuario en el formulario
           const username = document.getElementById('nombre').value;
+          sessionStorage.setItem('username', username);//GUARDO VARIABLE PARA PANTALLA DE LOCAL
           const email = document.getElementById('correo').value;
           const tipoUsuario = "jefe";
           const password = document.getElementById('contrasena').value;

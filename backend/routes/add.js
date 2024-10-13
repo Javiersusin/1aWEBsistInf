@@ -4,8 +4,8 @@ const db = require('../database/db'); //Creo que deberia ser ../database/db la r
 const UsuarioVO = require('../vo/UsuarioVO');
 const UsuarioDAO = require('../dao/UsuarioDAO');
 
-// const RestauranteVO = require('../vo/RestauranteVO');
-// const RestauranteDAO = require('../dao/RestauranteDAO');
+const RestauranteVO = require('../vo/RestauranteVO');
+const RestauranteDAO = require('../dao/RestauranteDAO');
 
 // const ResenaVO = require('../vo/ResenaVO');
 // const ResenaDAO = require('../dao/ResenaDAO');
@@ -21,26 +21,26 @@ const UsuarioDAO = require('../dao/UsuarioDAO');
 const router = express.Router();
 
 // Add a new review
-router.post('/review', async (req, res) => {
-    const { userId, restaurantId, rating, comment } = req.body;
-    try {
-        const result = await db.query('INSERT INTO reviews (user_id, restaurant_id, rating, comment) VALUES (?, ?, ?, ?)', [userId, restaurantId, rating, comment]);
-        res.status(201).json({ message: 'Review added successfully', reviewId: result.insertId });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to add review' });
-    }
-});
+//router.post('/review', async (req, res) => {
+//    const { userId, restaurantId, rating, comment } = req.body;
+//    try {
+//        const result = await db.query('INSERT INTO reviews (user_id, restaurant_id, rating, comment) VALUES (?, ?, ?, ?)', [userId, restaurantId, rating, comment]);
+//        res.status(201).json({ message: 'Review added successfully', reviewId: result.insertId });
+//    } catch (error) {
+//        res.status(500).json({ error: 'Failed to add review' });
+//    }
+//});
 
 // Add a new restaurant
-router.post('/restaurant', async (req, res) => {
-    const { name, address, cuisine } = req.body;
-    try {
-        const result = await db.query('INSERT INTO restaurants (name, address, cuisine) VALUES (?, ?, ?)', [name, address, cuisine]);
-        res.status(201).json({ message: 'Restaurant added successfully', restaurantId: result.insertId });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to add restaurant' });
-    }
-});
+//router.post('/restaurant', async (req, res) => {
+//    const { name, address, cuisine } = req.body;
+//    try {
+//        const result = await db.query('INSERT INTO restaurants (name, address, cuisine) VALUES (?, ?, ?)', [name, address, cuisine]);
+//        res.status(201).json({ message: 'Restaurant added successfully', restaurantId: result.insertId });
+//    } catch (error) {
+//        res.status(500).json({ error: 'Failed to add restaurant' });
+//    }
+//});
 
 
 // Ruta para agregar un nuevo usuario (esto no hace fallar)
@@ -113,64 +113,16 @@ router.post('/user', async (req, res) => {
 //  //en el archivo add.js
 //  //Ademas deberia de descomentar las lineas de const Restaurante...
 // // Ruta para agregar un nuevo usuario (esto no hace fallar)
-// router.post('/restaurante', async (req, res) => {
-//     const { idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre } = req.body;
-    
-//     try {
-//         // Si el usuario no existe, crear un nuevo usuario en la base de datos
-//         const result = await RestauranteDAO.createUser(idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre);
-        
-//         res.status(201).json({ message: 'Restaurante registrado exitosamente', restauranteId: result.insertId });
+router.post('/restaurant', async (req, res) => {
+  const { jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion} = req.body;
 
-//     } catch (error) {
-//         console.error('Error al registrar el usuario:', error);
-//         res.status(500).json({ error: 'Error al registrar el usuario' });
-//     }
-// });
-
-// module.exports = RestauranteDAO;
-
-
-// //Dentro del script del html añadir esto
-// document.getElementById('restRegistro').addEventListener('submit', async (e) => {
-//     e.preventDefault();
-
-//     // Obtener los valores de usuario y contraseña
-//     const idRestaurante = document.getElementById('idRestaurante').value;
-//     const jefe = document.getElementById('jefe').value;
-//     const aforo = document.getElementById('aforo').value;
-//     const fotos = document.getElementById('fotos').value;
-//     const URLweb = document.getElementById('URLweb').value;
-//     const telefono = document.getElementById('telefono').value;
-//     const descripcion = document.getElementById('descripcion').value;
-//     const visitas = document.getElementById('visitas').value;
-//     const email = document.getElementById('email').value;
-//     const nombre = document.getElementById('nombre').value;
-
-//     // Enviar la información al backend, definiendo ruta en la que me lee en puerto local
-//     try {
-//       const response = await fetch('http://localhost:3000/api/restaurant', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({idRestaurante, jefe, aforo, fotos, URLweb, telefono, descripcion, visitas, email, nombre})
-//       });
-
-//       // Procesar la respuesta
-//       const data = await response.json();
-//       if (response.ok) {
-//         // Si el registro es exitoso
-//         alert('Registro del local exitoso');
-//         window.location.href = './Inicio.html';
-//       } else {
-//         // Si la autenticación falla
-//         alert(data.message);
-//       }
-//     } catch (error) {
-//       console.error('Error en el registro del restaurante:', error);
-//     }
-//   });
-
+  try {
+    const result = await RestauranteDAO.createRestaurante(jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion);
+    res.status(201).json({ message: 'Restaurante registrado exitosamente', idRestaurante: result.insertId });
+  } catch (error) {
+    console.error('Error al registrar el restaurante:', error);
+    res.status(500).json({ error: 'Error al registrar el restaurante' });
+  }
+});
 
 module.exports = router;
