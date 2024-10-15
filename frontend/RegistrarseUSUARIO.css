@@ -131,6 +131,8 @@ nav ul li a {
     justify-content: space-between;
 }
 
+
+
 .nav-item:hover {
     background-color: #adbd19;
     border-radius: 10px;
@@ -151,12 +153,17 @@ iframe {
 
 /*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
 Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
     .navbar-brand {
-        display: none;
+        display: none; /* Ocultar el logo en pantallas pequeñas */
     }
 
     .navbar-titulo {
+        position: absolute;
+        top: 10px; /* Mueve el título hacia la parte superior */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.5rem; /* Ajustar el tamaño de la fuente para pantallas pequeñas */
         text-align: center;
     }
 

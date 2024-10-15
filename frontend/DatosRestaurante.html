@@ -16,10 +16,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     <title>Mi local - BiteFinder</title>
-    <link rel="stylesheet" href="RegistrarseUSUARIO.css">
-    <link rel="stylesheet" href="Registrarse.css">
+    <link href="RegistrarseUSUARIO.css" rel="stylesheet">
 </head>
 
+    <!-- Barra de navegacion -->
+    <nav class="navbar navbar-expand-xl navbar-light" style="padding: 2rem; background-color: #d3e71a">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-toggler">
+                <a class="navbar-brand">
+                    <img src="./img/favicon.png" width="100px" alt="Logo de BiteFinder">
+                </a>
+                <h1 class="navbar-titulo" style="font-family: 'Lobster'; font-size: 60px; position: absolute; left: 50%; transform: translateX(-50%); text-align: center;">
+                    BiteFinder
+                  </h1>
+                <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Si clican en el llevará a la parte inferior de la página, a la seccion de contacto-->
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Home.html">Iniciar
+                            Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Seccion de contacto -->
     <section id="contacto" class="contacto">
@@ -52,4 +83,5 @@
                 <a href="tel:+976675452" style="font-family: 'Oswald'; font-size: 20px;">+976 675 452</a>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </section>
