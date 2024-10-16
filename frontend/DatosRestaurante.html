@@ -17,6 +17,7 @@
 
     <title>Mi local - BiteFinder</title>
     <link href="RegistrarseUSUARIO.css" rel="stylesheet">
+    <link rel="stylesheet" href="Registrarse.css">
 </head>
 
     <!-- Barra de navegacion -->
@@ -51,6 +52,174 @@
             </div>
         </div>
     </nav>
+
+<!-- Main Section -->
+<main style="background-color: #337ab7;">
+    <section class="local-section">
+        <h2 style="font-family: 'Oswald'; font-size: 36px;">Modifique los datos de su local:</h2>
+        
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-heade m-0">
+                <button class="accordion-button" style="font-family: 'Oswald'; font-size: 24px; color:  red;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <p><strong>IMPORTANTE: </strong> Lea estás instrucciones antes de realizar los cambios. </p>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" style="font-family: 'Oswald'; font-size: 20px;"  data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Rellene todos los campos obligatiorios marcados con (*).</strong> A continuación están presentes los datos relaitvos a su local, si desea realizar alguna modificación en alguno de ellos, simplemente reescribelo, tenga en cuenta que una vez realizados los cambios no hay vuelta atrás, por lo que revise los cambios encarecidamente antes de guardarlos.
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <form id = "form" class="local-form">
+
+            <div class="input-group">
+                <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Nombre del
+                    restaurante <strong style="color: red;">*</strong></label>
+                <input type="text" id="nombreRestaurante" placeholder="Ingrese el nombre del local"
+                    style="font-family: 'Oswald'; font-size: 20px;">
+            </div>
+
+            <div class="input-group">
+                <label for="emailContacto" style="font-family: 'Oswald'; font-size: 26px;">Email de contacto<strong style="color: red;">*</strong></label>
+                <input type="email" id="emailContacto" placeholder="Ingrese un correo electrónico de contacto para el restaurante"
+                    style="font-family: 'Oswald'; font-size: 20px;">
+            </div>
+
+            <label for="descripcion" style="font-family: 'Oswald'; font-size: 26px;">Descripción del local<strong style="color: red;">*</strong></label>
+            <textarea id="descripcion" placeholder="Describe tu local"
+                style="font-family: 'Oswald'; font-size: 20px;"></textarea>
+
+            <div class="input-group">
+                <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Categoría del local <strong style="color: red;">*</strong></label>
+                <input type="text" id="nombreRestaurante" placeholder="Ingrese la categoría del local"
+                    style="font-family: 'Oswald'; font-size: 20px;">
+            </div>
+
+            <label for="telefono" style="font-family: 'Oswald'; font-size: 26px;">Teléfono<strong style="color: red;">*</strong></label>
+            <input type="tel" id="telefono" placeholder="+14155552675"
+                style="font-family: 'Oswald'; font-size: 20px;">
+
+            <label for="url" style="font-family: 'Oswald'; font-size: 26px;">URL</label>
+            <input type="url" id="url" placeholder="Ingrese su URL (opcional)"
+                style="font-family: 'Oswald'; font-size: 20px;">
+
+            <label for="aforo" style="font-family: 'Oswald'; font-size: 26px;">Aforo<strong style="color: red;">*</strong></label>
+            <input type="number" id="aforo" value="0">
+
+            <div class="input-group">
+                <label for="ubicacion" style="font-family: 'Oswald'; font-size: 26px;">Ubicación<strong style="color: red;">*</strong></label>
+                <input type="text" id="ubicacion" placeholder="Ingrese la ubicación del restaurante"
+                    style="font-family: 'Oswald'; font-size: 20px;">
+            </div>
+            
+            <label for="foto" style="font-family: 'Oswald'; font-size: 26px;">Foto local</label>
+            <input type="url" id="foto" placeholder="Ingrese una foto del local (opcional)"
+                style="font-family: 'Oswald'; font-size: 20px;">
+                
+            <!-- Horarios de apertura y cierre para los 7 días de la semana -->
+            <div class="horarios">
+                <h3 style="font-family: 'Oswald'; font-size: 26px;">Horarios de apertura y cierre:<strong style="color: red;">*</strong></h3>
+                
+                <!-- Horarios para cada día -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Lunes</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="lunesMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="lunesMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="lunesNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="lunesNocheCierre">
+                </div>
+                
+                <!-- Martes -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Martes</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="martesMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="martesMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="martesNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="martesNocheCierre">
+                </div>
+                
+                <!-- Miércoles -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Miércoles</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="miercolesMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="miercolesMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="miercolesNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="miercolesNocheCierre">
+                </div>
+
+                <!-- Jueves -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Jueves</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="juevesMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="juevesMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="juevesNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="juevesNocheCierre">
+                </div>
+                
+                <!-- Viernes -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Viernes</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="viernesMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="viernesMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="viernesNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="viernesNocheCierre">
+                </div>
+                
+                <!-- Sábado -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Sábado</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="sabadoMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="sabadoMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="sabadoNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="sabadoNocheCierre">
+                </div>
+
+                <!-- Domingo -->
+                <div class="dia-horario">
+                    <h4 style="font-family: 'Oswald'; font-size: 24px;">Domingo</h4>
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Apertura</label>
+                    <input type="time" name="domingoMananaApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Mañana - Cierre</label>
+                    <input type="time" name="domingoMananaCierre">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Apertura</label>
+                    <input type="time" name="domingoNocheApertura">
+                    <label style="font-family: 'Oswald'; font-size: 20px;">Noche - Cierre</label>
+                    <input type="time" name="domingoNocheCierre">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="font-family: 'Oswald'; font-size: 20px;">Guardar
+                local</button>
+        </form>
+    </section>
+</main>
 
     <!-- Seccion de contacto -->
     <section id="contacto" class="contacto">

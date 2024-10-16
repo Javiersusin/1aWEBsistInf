@@ -8,14 +8,16 @@ CREATE TABLE Usuarios (
 CREATE TABLE restaurante (
     idRestaurante SERIAL PRIMARY KEY,
     jefe TEXT,
-    aforo INTEGER,
+    aforo INTEGER NOT NULL,
+    categoria TEXT NOT NULL,
     fotos TEXT,
     URLweb TEXT,
-    telefono INT,  
-    descripcion TEXT,
-    visitas INTEGER,
-    email TEXT,
-    nombre TEXT,  
+    ubicacion TEXT NOT NULL,
+    telefono INT NOT NULL,  
+    descripcion TEXT NOT NULL,
+    visitas INTEGER NOT NULL,
+    email TEXT NOT NULL,
+    nombre TEXT NOT NULL,  
     FOREIGN KEY (jefe) REFERENCES Usuarios(nombre) ON DELETE CASCADE
 );
 
