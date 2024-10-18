@@ -6,15 +6,8 @@ const RestauranteDAO = require('../dao/RestauranteDAO');
 // Ruta para obtener los restaurantes
 router.get('/mostrarRestaurantes', async (req, res) => {
     try {
-    /*    const result = await pool.query('SELECT nombre FROM restaurante');//'SELECT nombre, fotos FROM restaurante'
-        res.json(result.rows); // Enviar los restaurantes como JSON
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Error del servidor');
-    }*/
     const datosRes = await RestauranteDAO.getRestaurante();
     res.json(datosRes);
-
     }
     catch (error) {
         console.error('Error al obtener datos del restaurante', error);

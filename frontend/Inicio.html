@@ -384,33 +384,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch('http://localhost:3000/api/mostrarRestaurantes');
-        const restaurantes = await response.json();
-        
-        console.log(restaurantes); // Para verificar qué datos se están recibiendo
+        try {
+            const response = await fetch('http://localhost:3000/api/mostrarRestaurantes');
+            const restaurantes = await response.json();
+            
+            console.log(restaurantes); // Para verificar qué datos se están recibiendo
 
-        const restaurantCards = document.querySelector('.restaurant-cards');
-        restaurantCards.innerHTML = ''; // Limpiar el contenido anterior
+            const restaurantCards = document.querySelector('.restaurant-cards');
+            restaurantCards.innerHTML = ''; // Limpiar el contenido anterior
 
-        restaurantes.forEach(restaurante => {
-            const card = document.createElement('div');
-            card.classList.add('restaurant-card');
+            restaurantes.forEach(restaurante => {
+                const card = document.createElement('div');
+                card.classList.add('restaurant-card');
 
-            card.innerHTML = `
-                <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
-                <div class="restaurant-info">
-                    <h2 class="restaurant-name">${restaurante.nombre}</h2>
-                    <p class="restaurant-description">A brief description of ${restaurante.nombre}.</p>
-                    <a href="/restaurantes/${restaurante.nombre}" class="restaurant-button">View Details</a>
-                </div>
-            `;
+                card.innerHTML = `
+                    <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
+                    <div class="restaurant-info">
+                        <h2 class="restaurant-name">${restaurante.nombre}</h2>
+                        <p class="restaurant-description">${restaurante.descripcion}.</p>
+                        <a href="/restaurantes/${restaurante.nombre}" class="restaurant-button">View Details</a>
+                    </div>
+                `;
 
-            restaurantCards.appendChild(card);
-        });
-    } catch (error) {
-        console.error('Error al obtener los restaurantes:', error);
-    }
+                restaurantCards.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Error al obtener los restaurantes:', error);
+        }
 });
 
     </script>
