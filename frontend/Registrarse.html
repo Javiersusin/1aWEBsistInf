@@ -104,12 +104,18 @@
                 <label for="descripcion" style="font-family: 'Oswald'; font-size: 26px;">Descripción del local <strong style="color: red;">*</strong></label>
                 <textarea id="descripcion" placeholder="Describe tu local"
                     style="font-family: 'Oswald'; font-size: 20px;"></textarea>
+
                 
-                    <div class="input-group">
-                    <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Categoría del local <strong style="color: red;">*</strong></label>
-                    <input type="text" id="nombreRestaurante" placeholder="Ingrese la categoría del local"
-                        style="font-family: 'Oswald'; font-size: 20px;">
-                </div>
+                    <label for="categoria" style="font-family: 'Oswald'; font-size: 26px; ">Categoría del local <strong style="color: red;">*</strong></label>
+                    <select class="form-select" id="categoria" style="font-family: 'Oswald'; font-size: 20px;">
+                          <option selected >Seleccione la categoría</option>
+                          <option value="1">Pizzas</option>
+                          <option value="2">Sushi</option>
+                          <option value="3">Hamburguesas</option>
+                          <option value="4">Repostería</option>
+                          <option value="5">Cócteles</option>
+                    </select>
+                
 
                 <label for="telefono" style="font-family: 'Oswald'; font-size: 26px;">Teléfono <strong style="color: red;">*</strong></label>
                 <input type="tel" id="telefono" placeholder="+14155552675"
