@@ -1,0 +1,422 @@
+/*Barra de Navegacion*/
+/* .navbar{
+    padding: 2rem;
+    background-color: rgb(243, 227, 52);
+} */
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item:hover {
+    background-color: #adbd19;
+    border-radius: 10px;
+}
+
+.u-map {
+    width: 100%;
+    height: 100%;
+    /* Puedes ajustar la altura según tus necesidades */
+}
+
+iframe {
+    border-color: black;
+
+    width: 100%;
+    height: 500px;
+}
+
+/*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
+Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
+@media screen and (max-width: 767px) {
+    .navbar-brand {
+        display: none;
+    }
+
+    .navbar-titulo {
+        text-align: center;
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.search-bar {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.join-us {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.join-us h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.join-us .images {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.join-us .images img {
+    width: 45%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-stats {
+    margin-bottom: 20px;
+}
+
+.login-stats h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat span {
+    font-size: 2rem;
+    display: block;
+}
+
+.stat p {
+    margin-top: 5px;
+}
+
+.join-link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
+}
+
+.enlace-inicio {
+    /* Hacer que aparezca en la esquina infrerior izquierda de su tarjeta y sin que aparezcan pegados al texto de encima*/
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    padding: 20px;
+}
+
+
+
+/*Barra de Navegacion*/
+/* .navbar{
+    padding: 2rem;
+    background-color: rgb(243, 227, 52);
+} */
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item:hover {
+    background-color: #adbd19;
+    border-radius: 10px;
+}
+
+.u-map {
+    width: 100%;
+    height: 100%;
+    /* Puedes ajustar la altura según tus necesidades */
+}
+
+iframe {
+    border-color: black;
+
+    width: 100%;
+    height: 500px;
+}
+
+/*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
+Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
+@media screen and (max-width: 767px) {
+    .navbar-brand {
+        display: none;
+    }
+
+    .navbar-titulo {
+        text-align: center;
+    }
+}
+
+.navbar-brand img {
+    width: 50px;
+}
+
+.navbar {
+    background-color: #d3e71a;
+}
+
+.navbar-titulo {
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+}
+
+.nav-link {
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+.container-fluid {
+    padding: 2rem 1rem;
+}
+
+.section-content {
+    padding: 2rem 0;
+}
+
+.image-container img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box {
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h2,
+.info-box h5,
+.info-box p {
+    margin-bottom: 1rem;
+}
+
+.map-container {
+    margin: 2rem 0;
+}
+
+.contact-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-info h2 {
+    margin-bottom: 1rem;
+}
+
+.reservation-section {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+    margin: 1rem 0;
+    font-size: 18px;
+    padding: 0.5rem 1.5rem;
+}
+
+.row {
+    margin: 2rem 0;
+}
+
+.imagen_cabecera {
+    /*hacer que la altura de las columnas sea igual*/
+    display: flex;
+    max-height: 415px;
+    /*hacer que la imagen se ajuste al tamaño de la columna*/
+    object-fit: cover;
+    /*hacer que la imagen no se deforme*/
+    object-position: center;
+}
+
+
+
+/*Parte de info y contacto*/
+.contact-section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section div {
+    margin-bottom: 20px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contact-section .icon {
+    background-color: #00b7a8;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contact-section .icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.contact-section a {
+    color: #d4ff00;
+    text-decoration: none;
+}
+
+
+/*Parte del carrusel de fotos*/
+.carruselTipos {
+    display: flex;
+    overflow-y: auto;
+}
+
+.carruselTipos .col-md-4 {
+    margin: 10px;
+    min-width: 200px;
+}
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-stats {
+    margin-bottom: 20px;
+}
+
+.login-stats h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat span {
+    font-size: 2rem;
+    display: block;
+}
+
+.stat p {
+    margin-top: 5px;
+}
