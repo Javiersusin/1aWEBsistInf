@@ -402,6 +402,49 @@
           }
         });
       </script>
+
+<script>
+  // Función para cargar los datos del restaurante cuando la página se cargue
+  window.onload = async function () {
+    // Obtenemos el nombre de usuario (jefe) almacenado en sessionStorage
+    const jefe = sessionStorage.getItem('username');
+    if (!jefe) {
+      alert('No se ha encontrado el nombre de usuario. Por favor, vuelva a iniciar sesión.');
+      return;
+    }
+
+    // Hacemos la petición al backend para obtener los datos del restaurante
+    try {
+      const response = await fetch('http://localhost:3000/api/restaurant?jefe=' + jefe, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      // Verificamos si la respuesta es correcta
+      if (response.ok) {
+        const restaurantData = await response.json();
+
+        // Rellenamos los campos del formulario con los datos del restaurante
+        document.getElementById('nombreRestaurante').value = restaurantData.nombre || '';
+        document.getElementById('emailContacto').value = restaurantData.email || '';
+        document.getElementById('descripcion').value = restaurantData.descripcion || '';
+        document.getElementById('telefono').value = restaurantData.telefono || '';
+        document.getElementById('url').value = restaurantData.urlweb || '';
+        document.getElementById('aforo').value = restaurantData.aforo || 0;
+        document.getElementById('ubicacion').value = restaurantData.ubicacion || '';
+        document.getElementById('foto').value = restaurantData.fotos || '';
+      } else {
+        alert('No se encontraron los datos del restaurante.');
+      }
+    } catch (error) {
+      console.error('Error al obtener los datos del restaurante:', error);
+      alert('Hubo un problema al intentar cargar los datos del restaurante. Inténtalo más tarde.');
+    }
+  };
+</script>
+
     
 
 
