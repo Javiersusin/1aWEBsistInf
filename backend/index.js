@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const addRoutes = require('./routes/add');
+const getRoutes = require('./routes/get');
 const { Pool } = require('pg');
 
 const app = express();
@@ -16,6 +17,10 @@ app.use('/api', authRoutes);
 
 // Usar la ruta que permite añadir elementos a la BD
 app.use('/api', addRoutes);
+
+// Usar la ruta que permite coger elementos a la BD
+app.use('/api', getRoutes);
+
 /*
 // Configurar la conexión a PostgreSQL
 const pool = new Pool({
