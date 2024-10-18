@@ -24,15 +24,15 @@ class RestauranteDAO {
         }
       }
 
-      static async getRestauranteByName(nombreRestaurante) {
+      static async getRestauranteByJefe(jefe) {
         try {
-            const result = await pool.query('SELECT * FROM restaurante WHERE nombre = $1', [nombreRestaurante]);
+            const result = await pool.query('SELECT * FROM restaurante WHERE jefe = $1', [jefe]);
             return result.rows[0]; // Devolver solo el primer resultado (si hay uno)
         } catch (error) {
             console.error('Error al obtener el restaurante:', error);
             throw error;
         }
-    }
+      }
     
 
     

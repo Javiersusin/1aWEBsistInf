@@ -16,9 +16,14 @@ router.get('/mostrarRestaurantes', async (req, res) => {
 });
 
 router.get('/mostrarFormularioRestaurante', async (req, res) => {
+    console.log(req.query);  // Verificar si llega el parámetro jefe
+    const { jefe } = req.query;  // Asegúrate de que estás usando req.query, no req.body
+    if (!jefe) {
+        return res.status(404).json({ error: 'Jefe no encontrado' });
+    }
+
     try {
-        const nombreRestaurante = req.params.nombre;
-        const restaurante = await RestauranteDAO.getRestauranteByName(nombreRestaurante);
+        const restaurante = await RestauranteDAO.getRestauranteByJefe(jefe);  // Revisa si este método existe en el DAO
         if (!restaurante) {
             return res.status(404).json({ error: 'Restaurante no encontrado' });
         }
@@ -28,6 +33,5 @@ router.get('/mostrarFormularioRestaurante', async (req, res) => {
         res.status(500).json({ error: 'Error al obtener los datos del restaurante' });
     }
 });
-
 
 module.exports = router; // Exporta el router
