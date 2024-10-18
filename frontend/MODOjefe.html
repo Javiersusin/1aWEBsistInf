@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteFinder</title>
+    <meta name="description" content="----------">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Archivo CSS-->
+    <link rel="stylesheet" href="MODOjefe.css">
+
+    <!--Fuentes de letras-->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Home - BiteFinder</title>
+    <!--Favicon-->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+</head>
+
+<body>
+    <!-- Barra de navegacion -->
+    <nav class="navbar navbar-expand-xl navbar-light" style="padding: 2rem; background-color: #d3e71a">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-toggler">
+                <a class="navbar-brand">
+                    <img src="./img/favicon.png" width="100px" alt="Logo de BiteFinder">
+                </a>
+                <h1 class="navbar-titulo"
+                    style="font-family: 'Lobster'; font-size: 60px; position: absolute; left: 50%; transform: translateX(-50%); text-align: center;">
+                    BiteFinder
+                </h1>
+                <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Si clican en el llevará a la parte inferior de la página, a la seccion de contacto-->
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;"
+                            href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Home.html">Iniciar
+                            Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seccion hero -->
+    <section class="container-fluid hero-section"
+        style="height: calc(70vh - 80px); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden;">
+        <!-- Imagen de fondo con pseudo-elemento -->
+        <div class="background-image"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./img/restaurant1.jpeg'); background-size: cover; background-position: center;  filter: brightness(50%);">
+        </div>
+        <!-- Contenido por encima de la imagen de fondo -->
+        <div class="row" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
+            <div class="col" style="color: rgb(255, 255, 255);">
+                <!-- Caja con color que incluye a h2 -->
+                <div class="caja-subtitulo">
+                    <h2 style="font-family: 'Oswald'; font-size: 36px;">Nombre del restaurante</h2>
+                </div>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Administra tu restaurante de forma sencilla y rápida.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content" href="Estadisticas">
+        <div class="card">
+            <div style="margin-bottom: 20px;">
+                <h2>Estadísticas</h2>
+                <p>Comoce más datos sobre tu local para poder realizar la mejor gestión.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div style="margin-bottom: 20px;">
+
+                <h2>¿Ya tienes una cuenta?</h2>
+                <p>Inicia sesión aquí para acceder a tu perfil personal.</p>
+            </div>
+            <div class="enlace-inicio">
+                <a href="IniciarSesion.html">Iniciar Sesión</a>
+            </div>
+        </div>
+        <div class="card">
+            <div style="margin-bottom: 20px;">
+                <h2>Navegar como invitado</h2>
+                <p>Si no deseas usar una cuenta, también podrás utilizar este modo, aunque no dispondrás de las mismas
+                    funcionalidades.</p>
+            </div>
+            <div class="enlace-inicio">
+                <a class="enlace-inicio" href="Inicio.html">Inicio</a>
+            </div>
+        </div>
+        <div class="card">
+            <div style="margin-bottom: 20px;">
+
+                <h2>Registro de Restaurantes</h2>
+                <p>Introduce algunos datos de tu negocio para que podamos darte a conocer.</p>
+            </div>
+
+            <div class="enlace-inicio">
+                <a class="enlace-inicio" href="Registrarse.html">Registrar</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="Estadisticas" id="estadisticas">
+        <div class="login-stats">
+            <h2>Estadísticas del local</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span>381</span>
+                    <p>Redirecciones</p> <!-- Redirecciones a la página del restaurante -->
+                </div>
+                <div class="stat">
+                    <span>236</span>
+                    <p>Reseñas</p>
+                </div>
+                <div class="stat">
+                    <span>562</span>
+                    <p>Visitas</p> <!-- Visitas a la pantalla principal del restaurante -->
+                </div>
+            </div>
+        </div>
+        <a href="#" class="join-link">¿Quieres unirte?</a>
+    </footer>
+
+
+    <container class="VistaPrevia">
+
+
+        <!-- #################################VISTA PREVIA DEL RESTAURANTE#################################################-->
+        <section class="container-fluid section-content">
+            <div class="row">
+                <div class="imagen_cabecera col-md-6 image-container">
+                    <img src="./img/12525.jpg" alt="Un camarero atendiendo una mesa" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h2><b>Encuéntrenos</b></h2>
+                        <!-- <h4>dónde</h5> -->
+                        <p>676 Pacific C Highway<br>Huntington Beach, CA 67898</p>
+                        <a href="#mapa" class="btn btn-primary btn-custom">Ver mapa</a>
+                        <a href="#reservar" class="btn btn-outline-dark btn-custom">Reservar una mesa</a>
+                        <h5>cuando</h5>
+                        <p>Lunes a viernes<br>7:00 a 18:00 horas<br>Sábado/domingo<br>8:00 a 18:00 horas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container-fluid map-container" id="mapa">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                    src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
+                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe>
+            </div>
+        </div>
+
+        <section class="container-fluid section-content">
+            <div class="row">
+                <div class="col-md-6 contact-info">
+                    <h2><b><u>Consultas</u></b></h2>
+                    <h6>CONSULTAS DE RR.PP. Y MARKETING</h5>
+                        <p>+1 234 567 77 66</p>
+                        <h6>CONSULTAS DE CATERING</h5>
+                            <p>+1 234 567 77 66</p>
+                            <h6>RESERVAS Y CENAS PRIVADAS</h5>
+                                <p>+1 234 567 77 66</p>
+                </div>
+                <div class="col-md-6 image-container">
+                    <img src="./img/1669.jpg" alt="Un camarero atendiendo una mesa" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <section class="container-fluid section-content reservation-section" id="reservar">
+            <h2>Reserva</h2>
+            <p>Reserva tu mesa para una experiencia gastronómica inolvidable.</p>
+            <a href="#scrollspyHeading4" class="btn btn-primary btn-custom">Haz tu reserva</a>
+        </section>
+
+        <!-- Fotos Carrusel-->
+        <section class="container-fluid" style="padding: 2rem; background-color: rgb(35,35,35);">
+            <h1 style="color: white; text-align: center; font-family: 'Oswald'; font-size: 40px;">Nuestro Restaurante
+            </h1>
+            <div class="carruselTipos">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant1.jpeg" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant2.jpeg" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant3.jpeg" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant1.jpeg" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant2.jpeg" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="./img/restaurant3.jpeg" class="card-img-top">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Seccion de contacto -->
+    <section id="contacto" class="contacto">
+        <div class="contact-section">
+            <div>
+                <div class="icon">
+                    <img src="img/correo.png" alt="Email">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 30px;">CONTÁCTANOS</h3>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Nuestro equipo está para ayudar</p>
+                <a href="mailto:admin@BiteFinder.com"
+                    style="font-family: 'Oswald'; font-size: 20px;">admin@BiteFinder.com</a>
+            </div>
+            <div>
+                <div class="icon">
+                    <img src="img/localizacion.png" alt="Oficina">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 30px;">OFICINA</h3>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Nuestras oficinas en caso de dudas</p>
+                <p><a href="https://maps.google.com/?q=Avenida%20Paraíso%20nº14" target="_blank"
+                        style="font-family: 'Oswald'; font-size: 20px;">Avenida Paraíso nº14</a>
+                </p>
+            </div>
+            <div>
+                <div class="icon">
+                    <img src="img/telefono.png" alt="Teléfono">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 30px;">TELÉFONO</h3>
+                <p style="font-family: 'Oswald'; font-size: 20px;">Lunes-Viernes de 8am a 5am</p>
+                <a href="tel:+976675452" style="font-family: 'Oswald'; font-size: 20px;">+976 675 452</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
