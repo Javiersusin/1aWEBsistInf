@@ -33,10 +33,20 @@ class RestauranteDAO {
             throw error;
         }
       }
-    
 
-    
-      
+        //Metodo para actualizar los valores de un restaurante mediante el formulario
+        static async updateRestaurante(jefe, nombre, email, descripcion, categoria, telefono, url, aforo, ubicacion, fotos) {
+            try {
+                const result = await pool.query(`
+                    UPDATE restaurante 
+                    SET nombre = $2, email = $3, descripcion = $4, categoria = $5, telefono = $6, URLweb = $7, aforo = $8, ubicacion = $9, fotos = $10
+                    WHERE jefe = $1`, [jefe, nombre, email, descripcion, categoria, telefono, url, aforo, ubicacion, fotos]);
+                return result;
+            } catch (error) {
+                console.error('Error al actualizar el restaurante:', error);
+                throw error;
+            }
+        }
   }
   
   module.exports = RestauranteDAO;

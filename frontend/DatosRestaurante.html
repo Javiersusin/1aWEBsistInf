@@ -303,10 +303,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         alert('Hubo un problema al intentar cargar los datos del restaurante. Inténtalo más tarde.');
     }
 });
-
     </script> 
-     
+    <script>
+        document.getElementById('form').addEventListener('submit', async (e) => {
+    e.preventDefault();  // Prevenir la recarga de la página al enviar el formulario
 
+    const jefe = sessionStorage.getItem('username');  // Recuperar el jefe desde sessionStorage
+    const nombre = document.getElementById('nombreRestaurante').value;
+    const email = document.getElementById('emailContacto').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const categoria = document.getElementById('categoriaLocal').value;
+    const telefono = document.getElementById('telefono').value;
+    const url = document.getElementById('url').value;
+    const aforo = document.getElementById('aforo').value;
+    const ubicacion = document.getElementById('ubicacion').value;
+    const fotos = document.getElementById('foto').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/api/actualizarRestaurante', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ jefe, nombre, email, descripcion, categoria, telefono, url, aforo, ubicacion, fotos })
+        });
+
+        if (response.ok) {
+            alert('Restaurante actualizado exitosamente');
+        } else {
+            const errorData = await response.json();
+            alert(`Error al actualizar el restaurante: ${errorData.error}`);
+        }
+    } catch (error) {
+        console.error('Error al enviar la actualización:', error);
+        alert('Hubo un error al intentar actualizar el restaurante. Inténtalo más tarde.');
+    }
+});
+
+    </script>
      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
