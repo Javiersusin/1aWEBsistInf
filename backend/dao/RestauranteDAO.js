@@ -16,13 +16,26 @@ class RestauranteDAO {
       }
       static async getRestaurante() {
         try {
-          const result = await pool.query('SELECT nombre , fotos FROM restaurante');
+          const result = await pool.query('SELECT * FROM restaurante');
           return result.rows;
         } catch (error) {
           console.error('Error al obtener los restaurantes:', error);
           throw error;
         }
       }
+
+      static async getRestauranteByName(nombreRestaurante) {
+        try {
+            const result = await pool.query('SELECT * FROM restaurante WHERE nombre = $1', [nombreRestaurante]);
+            return result.rows[0]; // Devolver solo el primer resultado (si hay uno)
+        } catch (error) {
+            console.error('Error al obtener el restaurante:', error);
+            throw error;
+        }
+    }
+    
+
+    
       
   }
   

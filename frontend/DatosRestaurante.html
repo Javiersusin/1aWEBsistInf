@@ -94,7 +94,7 @@
 
             <div class="input-group">
                 <label for="nombreRestaurante" style="font-family: 'Oswald'; font-size: 26px;">Categoría del local <strong style="color: red;">*</strong></label>
-                <input type="text" id="nombreRestaurante" placeholder="Ingrese la categoría del local"
+                <input type="text" id="categoriaLocal" placeholder="Ingrese la categoría del local"
                     style="font-family: 'Oswald'; font-size: 20px;">
             </div>
 
@@ -252,5 +252,55 @@
                 <a href="tel:+976675452" style="font-family: 'Oswald'; font-size: 20px;">+976 675 452</a>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+       
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const nombreRestaurante = 'Carlos Restaurante'; // Reemplazar con el nombre real del restaurante
+            
+            const nombreJefe document.getElementById('nombreRestaurante').value = restaurante.nombre;
+            const    document.getElementById('emailContacto').value = restaurante.email;
+            const    document.getElementById('descripcion').value = restaurante.descripcion;
+            const    document.getElementById('categoriaLocal').value = restaurante.categoria;
+            const    document.getElementById('telefono').value = restaurante.telefono;
+            const    document.getElementById('url').value = restaurante.URLweb;
+            const    document.getElementById('aforo').value = restaurante.aforo;
+            const    document.getElementById('ubicacion').value = restaurante.ubicacion;
+            const    document.getElementById('foto').value = restaurante.fotos;
+    
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/mostrarFormularioRestaurante`);
+                const restaurante = await response.json();
+                
+
+                if (!response.ok) {
+                    throw new Error(restaurante.error || 'Error al cargar los datos del restaurante');
+                }
+    
+                // Rellenar los campos del formulario con los datos recibidos
+                document.getElementById('nombreRestaurante').value = restaurante.nombre;
+                document.getElementById('emailContacto').value = restaurante.email;
+                document.getElementById('descripcion').value = restaurante.descripcion;
+                document.getElementById('categoriaLocal').value = restaurante.categoria;
+                document.getElementById('telefono').value = restaurante.telefono;
+                document.getElementById('url').value = restaurante.URLweb;
+                document.getElementById('aforo').value = restaurante.aforo;
+                document.getElementById('ubicacion').value = restaurante.ubicacion;
+                document.getElementById('foto').value = restaurante.fotos;
+    
+                // Rellenar los horarios (suponiendo que los tienes en formato JSON)
+                // document.querySelector('input[name="lunesMananaApertura"]').value = restaurante.horarios.lunes.apertura_manana;
+                // document.querySelector('input[name="lunesMananaCierre"]').value = restaurante.horarios.lunes.cierre_manana;
+                // Completa para el resto de días de la semana...
+    
+            } catch (error) {
+                console.error('Error al obtener los datos del restaurante:', error);
+            }
+        });
+    </script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
