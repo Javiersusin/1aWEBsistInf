@@ -596,6 +596,7 @@ h1 {
     background-image: url("img/3a7f1e38183b3280f03d956ed3cf634b0492cd5ea926f8f54e8543439435be52db1b93ec9888436087b7d1315877f373e51ebfa5e02861ae216668_1280.jpg");
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
     /* Add a dark overlay */
     background-blend-mode: darken;
     /* Blend the overlay with the image */
@@ -628,12 +629,28 @@ h1 {
     overflow: hidden;
     border-radius: 10px;
     flex: auto;
+    gap: 20px; /* Espacio entre las tarjetas */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .restaurant-card img {
     width: 100%;
     height: auto;
 }
+
+
+/* Ocultar las barras de desplazamiento */
+body {
+    overflow-y: scroll; /* Para mantener el comportamiento de desplazamiento vertical */
+    scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Ocultar barra de desplazamiento en Chrome, Safari y Edge */
+}
+
 
 .restaurant-info {
     padding: 15px;
