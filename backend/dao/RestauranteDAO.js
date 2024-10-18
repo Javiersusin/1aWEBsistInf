@@ -16,7 +16,7 @@ class RestauranteDAO {
       }
       static async getRestaurante() {
         try {
-          const result = await pool.query('SELECT * FROM restaurante');
+          const result = await pool.query('SELECT nombre , fotos FROM restaurante');
           return result.rows;
         } catch (error) {
           console.error('Error al obtener los restaurantes:', error);
