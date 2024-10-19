@@ -3,6 +3,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const addRoutes = require('./routes/add');
 const getRoutes = require('./routes/get');
+const updateRoutes = require('./routes/update');
 const { Pool } = require('pg');
 
 const app = express();
@@ -20,6 +21,9 @@ app.use('/api', addRoutes);
 
 // Usar la ruta que permite coger elementos a la BD
 app.use('/api', getRoutes);
+
+// Usar la ruta que permite actualizar elementos de la BD
+app.use('/api', updateRoutes);
 
 /*
 // Configurar la conexión a PostgreSQL

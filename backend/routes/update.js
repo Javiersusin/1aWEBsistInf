@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database/db'); // Asegúrate de que esta sea la conexión correcta a la base de datos
+const RestauranteDAO = require('../dao/RestauranteDAO');
 
-
-// En tu archivo de rutas, como add.js o update.js
+// Esto en principi va bien, no debería de dar problemas
 router.put('/actualizarRestaurante', async (req, res) => {
     const { jefe, nombre, email, descripcion, categoria, telefono, url, aforo, ubicacion, fotos } = req.body;
 

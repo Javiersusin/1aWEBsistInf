@@ -319,6 +319,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const ubicacion = document.getElementById('ubicacion').value;
     const fotos = document.getElementById('foto').value;
 
+        //Para ver si coge bien los valores, los coge bien dandole a inspeccionar y mirando la consola coge bien los valores, falla al hacer el fetch.
+        console.log(jefe, nombre, email, descripcion, categoria, telefono, url);
     try {
         const response = await fetch('http://localhost:3000/api/actualizarRestaurante', {
             method: 'PUT',
