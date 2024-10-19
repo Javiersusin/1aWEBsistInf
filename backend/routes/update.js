@@ -20,6 +20,16 @@ router.put('/actualizarRestaurante', async (req, res) => {
         }
     } catch (error) {
         console.error('Error al actualizar el restaurante:', error);
+
+        // Verificamos si el error es de categoría inválida
+        if (error.constraint && error.constraint === 'restaurante_categoria_check') {
+            // Si el error se debe a la restricción de la categoría
+            res.status(400).json({ error: 'La categoría introducida no es válida, opciones disponibles: Pizzas, Hamburguesas, Sushi, Repostería o Cócteles.' });
+        } else {
+            // Otros errores
+            res.status(500).json({ error: 'Error al actualizar el restaurante' });
+        }
+
         res.status(500).json({ error: 'Error al actualizar el restaurante' });
     }
 });

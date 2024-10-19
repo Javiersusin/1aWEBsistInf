@@ -9,7 +9,7 @@ CREATE TABLE restaurante (
     idRestaurante SERIAL PRIMARY KEY,
     jefe TEXT,
     aforo INTEGER NOT NULL,
-    categoria TEXT NOT NULL,
+    categoria TEXT NOT NULL CHECK (categoria IN ('Pizzas', 'Sushi', 'Hamburguesas', 'Repostería', 'Cócteles')),
     fotos TEXT NOT NULL,
     URLweb TEXT NULL,
     ubicacion TEXT NOT NULL,
@@ -47,5 +47,5 @@ CREATE TABLE categorias (
     local INTEGER NOT NULL,
     productoEspecialidad TEXT NOT NULL,
     FOREIGN KEY(local) REFERENCES restaurante(idRestaurante) ON DELETE CASCADE,
-     PRIMARY KEY(local,productoEspecialidad)
+    PRIMARY KEY(local,productoEspecialidad)
 );
