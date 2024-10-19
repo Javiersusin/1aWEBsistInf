@@ -77,62 +77,36 @@
         </div>
     </section>
 
-    <section class="main-content" href="Estadisticas">
+    <section class="main-content">
         <div class="card">
-            <div style="margin-bottom: 20px;">
+            <a style="margin-bottom: 20px;" href="#estadisticas">
                 <h2>Estadísticas</h2>
                 <p>Comoce más datos sobre tu local para poder realizar la mejor gestión.</p>
-            </div>
+            </a>
         </div>
         <div class="card">
-            <div style="margin-bottom: 20px;">
+            <a style="margin-bottom: 20px;" href="#vistaPrevia">
 
-                <h2>¿Ya tienes una cuenta?</h2>
-                <p>Inicia sesión aquí para acceder a tu perfil personal.</p>
-            </div>
-            <div class="enlace-inicio">
-                <a href="IniciarSesion.html">Iniciar Sesión</a>
-            </div>
+                <h2>¿Cómo te ven?</h2>
+                <p>Accede a la vista previa de tu restaurante.</p>
+            </a>
         </div>
         <div class="card">
-            <div style="margin-bottom: 20px;">
-                <h2>Navegar como invitado</h2>
-                <p>Si no deseas usar una cuenta, también podrás utilizar este modo, aunque no dispondrás de las mismas
-                    funcionalidades.</p>
-            </div>
-            <div class="enlace-inicio">
-                <a class="enlace-inicio" href="Inicio.html">Inicio</a>
-            </div>
+            <a style="margin-bottom: 20px;" href="DatosRestaurante.html">
+                <h2>Editar datos</h2>
+                <p>Modifica los datos que otros verán sobre tu restaurante.</p>
+            </a>
         </div>
-        <div class="card">
-            <div style="margin-bottom: 20px;">
-
-                <h2>Registro de Restaurantes</h2>
-                <p>Introduce algunos datos de tu negocio para que podamos darte a conocer.</p>
-            </div>
-
-            <div class="enlace-inicio">
-                <a class="enlace-inicio" href="Registrarse.html">Registrar</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div style="margin-bottom: 20px;">
-
-                <h2>Modificar datos de Restaurante</h2>
-            </div>
-
-            <div class="enlace-inicio">
-                <a class="enlace-inicio" href="DatosRestaurante.html">Modificar</a>
-            </div>
         </div>
     </section>
 
 
 
     <footer class="Estadisticas" id="estadisticas">
-        <div class="login-stats">
-            <h2>Estadísticas del local</h2>
+        <div class="login-stats" style="text-align: center;">
+            <div class="caja-subtitulo" style="padding-top: 10px; padding-bottom: 10px; background-color: #5c5f55bb;">
+                <h2>Estadísticas del local</h2>
+            </div>
             <div class="stats">
                 <div class="stat">
                     <span>381</span>
@@ -152,9 +126,12 @@
     </footer>
 
 
-    <container class="VistaPrevia">
-
-
+    <container class="VistaPrevia" id="vistaPrevia">
+        <section class="subtitulo-vista-previa">
+            <div class="caja-subtitulo">
+                <h1>Vista previa de tu restaurante</h1>
+            </div>
+        </section>
         <!-- #################################VISTA PREVIA DEL RESTAURANTE#################################################-->
         <section class="container-fluid section-content">
             <div class="row">
@@ -262,7 +239,7 @@
     <!-- Seccion de contacto -->
     <section id="contacto" class="contacto">
         <div class="contact-section">
-            <div>
+            <div class="elemento-contact">
                 <div class="icon">
                     <img src="img/correo.png" alt="Email">
                 </div>
@@ -271,7 +248,7 @@
                 <a href="mailto:admin@BiteFinder.com"
                     style="font-family: 'Oswald'; font-size: 20px;">admin@BiteFinder.com</a>
             </div>
-            <div>
+            <div class="elemento-contact">
                 <div class="icon">
                     <img src="img/localizacion.png" alt="Oficina">
                 </div>
@@ -281,7 +258,7 @@
                         style="font-family: 'Oswald'; font-size: 20px;">Avenida Paraíso nº14</a>
                 </p>
             </div>
-            <div>
+            <div class="elemento-contact">
                 <div class="icon">
                     <img src="img/telefono.png" alt="Teléfono">
                 </div>

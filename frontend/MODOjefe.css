@@ -67,31 +67,36 @@ nav ul li a {
 }
 
 .main-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }
 
-.card {
+
+.main-content .card {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 230px;
+    width: 30%;
+    text-align: center;
 }
 
 .card h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
 .card p {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .card a {
     text-decoration: none;
     color: #000;
-    font-weight: bold;
 }
 
 .join-us {
@@ -166,9 +171,21 @@ footer {
     color: #fff;
     padding: 40px 20px;
     text-align: center;
+    /*Hacer que se adapten al espacio 
+    y que si es insuficiente los 
+    siquietes aparezcan abajo*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.contact-section .elemento-contact {
+    min-width: 170px;
 }
 
 .contact-section div {
+    margin: 10px;
     margin-bottom: 20px;
     width: 33%;
     display: inline-block;
@@ -203,65 +220,25 @@ footer {
     padding: 20px;
 }
 
+.VistaPrevia .caja-subtitulo {
+    text-align: center;
+}
 
+.subtitulo-vista-previa {
+    margin-top: 40px;
+    text-align: center;
+}
 
-/*Barra de Navegacion*/
-/* .navbar{
+.caja-subtitulo {
+    /*Ajustar el ancho de la caja al texto
+    a la anchura del texto*/
+    display: inline-block;
+    /* Poner el elemento en el centro de la pantalla*/
+    margin: auto;
     padding: 2rem;
-    background-color: rgb(243, 227, 52);
-} */
-
-.navbar-collapse {
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-item:hover {
-    background-color: #adbd19;
+    background-color: #3c3d36b1;
     border-radius: 10px;
-}
-
-.u-map {
-    width: 100%;
-    height: 100%;
-    /* Puedes ajustar la altura según tus necesidades */
-}
-
-iframe {
-    border-color: black;
-
-    width: 100%;
-    height: 500px;
-}
-
-/*Hago una media query para que el icono cuando la pantalla sea pequeñas y salgan las tres rayas no aparezca para no estorbar
-Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago entre {}, y hago que de la clase navbar brand no se muestre nada*/
-@media screen and (max-width: 767px) {
-    .navbar-brand {
-        display: none;
-    }
-
-    .navbar-titulo {
-        text-align: center;
-    }
-}
-
-.navbar-brand img {
-    width: 50px;
-}
-
-.navbar {
-    background-color: #d3e71a;
-}
-
-.navbar-titulo {
-    font-family: 'Lobster', cursive;
-    font-size: 50px;
-}
-
-.nav-link {
-    font-size: 20px;
-    margin: 0 15px;
+    color: white;
 }
 
 .container-fluid {
@@ -336,43 +313,6 @@ Le marco a partir de cual anchura quiero que se aplique la funcion(lo que hago e
 }
 
 
-
-/*Parte de info y contacto*/
-.contact-section {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact-section div {
-    margin-bottom: 20px;
-    width: 33%;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.contact-section .icon {
-    background-color: #00b7a8;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.contact-section .icon img {
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-}
-
-.contact-section a {
-    color: #d4ff00;
-    text-decoration: none;
-}
-
-
 /*Parte del carrusel de fotos*/
 .carruselTipos {
     display: flex;
@@ -404,12 +344,16 @@ footer {
 
 .stats {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
+
 }
 
 .stat {
     text-align: center;
+    width: 30%;
+    min-width: 100px;
 }
 
 .stat span {
