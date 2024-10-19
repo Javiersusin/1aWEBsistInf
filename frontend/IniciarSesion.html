@@ -1,36 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="IniciarSesion.css">
-    <link rel="icon" href="img/favicon.png" type="image/x-icon">
-    <title>Inicio de Sesión - BiteFinder</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="autor" content="Javier Susin">
+  <meta name="description" content="Pantalla destinada al registro de los usuarios de la aplicación BiteFinder">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Archivo CSS-->
+  <!-- <link href="Inicio.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="RegistrarseUSUARIO.css">
+
+  <!--Fuentes de letras-->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <title>Inicio Sesión - BiteFinder</title>
+  <!--Favicon-->
+  <link rel="icon" type="image/x-icon" href="./img/favicon.png">
 
 </head>
-<body>
-    <form id="loginForm" class="container">
-        <h1>Iniciar Sesión</h1>
-        <input type="text" id="username" name="username" placeholder="Usuario" required>
-        <input type="password" id="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Iniciar Sesión</button>
-        <a class="Enlace" href="Registrarse.html" >PULSE AQUI PARA REGISTRARSE</a>
-        <p id="responseMessage"></p>
-    </form>
 
+<body>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-xl navbar-light" style="padding: 2rem; background-color: #d3e71a">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+        <a class="navbar-brand">
+          <img src="./img/favicon.png" width="100px" alt="Logo de BiteFinder">
+        </a>
+        <h1 class="navbar-titulo" style="font-family: 'Lobster'; font-size: 60px; position: absolute; left: 50%; transform: translateX(-50%); text-align: center;">
+          BiteFinder
+        </h1>
+        <ul class="navbar-nav d-flex justify-content-center align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Inicio.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <!-- Si clican en el llevará a la parte inferior de la página, a la seccion de contacto-->
+            <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-family: 'Oswald'; font-size: 30px;" href="Home.html">Modos inicio sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="registro">
+    <div class="contenedor">
+
+      <div class="formulario">
+        <form>
+        <h2 class="bienvenida" style="font-size: 36px; font-family: 'Oswald';">¡BIENVENIDO A BiteFinder!</h2>
+        <p class="bienvenida" style="font-size: 24px; font-family: 'Oswald';">Inicia sesión para disfrutar de todas las ventajas de nuestra aplicación</p>
+      
+          <label for="username" style="font-size: 26px; font-family: 'Oswald';">Nombre usuario</label>
+          <input type="text" id="username" placeholder="Introduce tu nombre de usuario" 
+            style="font-size: 20px; font-family: 'Oswald';">
+
+          <label for="password" style="font-size: 26px; font-family: 'Oswald';">Contraseña</label>
+          <input type="password" id="password" placeholder="!#.pizza?@" style="font-size: 20px; font-family: 'Oswald';">
+
+          <p style="font-size: 21px; font-family: 'Oswald';">Recuerda que la contraseña tiene al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1
+            número y 1 carácter especial.</p>
+          <button class="btn btn-primary" type="submit" style="font-size: 20px; font-family: 'Oswald';">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion de contacto -->
+  <section id="contacto" class="contacto">
+    <div class="contact-section">
+      <div>
+        <div class="icon">
+          <img src="img/correo.png" alt="Email">
+        </div>
+        <h3 style="font-family: 'Oswald'; font-size: 30px;">CONTÁCTANOS</h3>
+        <p style="font-family: 'Oswald'; font-size: 20px;">Nuestro equipo está para ayudar</p>
+        <a href="mailto:admin@BiteFinder.com" style="font-family: 'Oswald'; font-size: 20px;">admin@BiteFinder.com</a>
+      </div>
+      <div>
+        <div class="icon">
+          <img src="img/localizacion.png" alt="Oficina">
+        </div>
+        <h3 style="font-family: 'Oswald'; font-size: 30px;">OFICINA</h3>
+        <p style="font-family: 'Oswald'; font-size: 20px;">Nuestras oficinas en caso de dudas</p>
+        <p><a href="https://maps.google.com/?q=Avenida%20Paraíso%20nº14" target="_blank"
+            style="font-family: 'Oswald'; font-size: 20px;">Avenida Paraíso nº14</a>
+        </p>
+      </div>
+      <div>
+        <div class="icon">
+          <img src="img/telefono.png" alt="Teléfono">
+        </div>
+        <h3 style="font-family: 'Oswald'; font-size: 30px;">TELÉFONO</h3>
+        <p style="font-family: 'Oswald'; font-size: 20px;">Lunes-Viernes de 8am a 5am</p>
+        <a href="tel:+976675452" style="font-family: 'Oswald'; font-size: 20px;">+976 675 452</a>
+      </div>
+    </div>
+  </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      //loginForm es el id del contenedor sobre el que quiero actuar y username y password las variables
-      //que introduce el usuario y yo me guardo para enviar a la BD
+      <script>
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
           e.preventDefault();
-      
+          
           // Obtener los valores de usuario y contraseña
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
-          
-          // Enviar la información al backend, definiendo ruta en la que me lee en puerto local
+          sessionStorage.setItem('username', username);
           try {
             const response = await fetch('http://localhost:3000/api/login', {
               method: 'POST',
@@ -42,10 +130,18 @@
       
             // Procesar la respuesta
             const data = await response.json();
+            console.log(data);
             if (response.ok) {
               // Si la autenticación es exitosa
               alert('Inicio de sesión exitoso');
-              window.location.href = './Inicio.html';
+              
+              
+              // Redirigir según el tipo de usuario
+              if (data == 'jefe') {
+                window.location.href = './MODOjefe.html';  // Redirigir a la página de Modo Jefe
+              } else {
+                window.location.href = './Inicio.html';  // Redirigir a la página de inicio estándar
+              }
             } else {
               // Si la autenticación falla
               alert(data.message);
@@ -55,6 +151,7 @@
           }
         });
       </script>
+
       
  
 </body>
