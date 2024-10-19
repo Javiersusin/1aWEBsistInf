@@ -78,37 +78,28 @@
 
 
 
-  <footer class="estadisticas">
+   <!-- Footer con estadísticas -->
+   <footer class="estadisticas">
     <div class="login-stats">
-      <h2>Login Page</h2>
       <div class="stats">
         <div class="stat">
-          <span>38</span>
+          <span id="restaurantes-numero">0</span>
           <p>Restaurantes</p>
         </div>
         <div class="stat">
-          <span>236</span>
+          <span id="resenas-numero">0</span>
           <p>Reseñas</p>
         </div>
         <div class="stat">
-          <span>16</span>
+          <span id="visitas-numero">0</span>
           <p>Visitas</p>
         </div>
       </div>
     </div>
-    <a href="#" class="join-link">¿Quieres unirte?</a>
+    <a href="Home.html" class="join-link">¿Quieres unirte?</a>
   </footer>
 
   <hr>
-  <section class="join-us">
-    <h2>Súmate a la mejor plataforma para encontrar locales</h2>
-    <div class="images">
-      <img src="#" alt="Local 1">
-      <img src="#" alt="Local 2">
-    </div>
-    <p>No lo dudes un segundo más y únete a nosotros para comenzar a ofertar tu local a su público objetivo.</p>
-    <a href="Registrarse.html">Añadir Local</a>
-  </section>
 
   <hr>
   <!-- Seccion de contacto -->
@@ -146,6 +137,47 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Script para obtener y mostrar el número de restaurantes -->
+   <script>
+    async function obtenerNumeroRestaurantes() {
+
+      try {
+        const response = await fetch('http://localhost:3000/api/numRestaurantes');
+        const data = await response.json();
+    
+        // Actualizar el HTML con el número de restaurantes
+        document.getElementById('restaurantes-numero').textContent = data.totalRestaurantes;
+      } catch (error) {
+        console.error('Error al obtener el número de restaurantes:', error);
+      }
+
+      try {
+       const response = await fetch('http://localhost:3000/api/numResenas');
+       const data = await response.json();
+   
+       // Actualizar el HTML con el número de restaurantes
+       document.getElementById('resenas-numero').textContent = data.totalResenas;
+     } catch (error) {
+       console.error('Error al obtener el número de resenas:', error);
+     }
+
+     try {
+       const response = await fetch('http://localhost:3000/api/sumaVisitas');
+       const data = await response.json();
+   
+       // Actualizar el HTML con el número de restaurantes
+       document.getElementById('visitas-numero').textContent = data.totalVisitas;
+     } catch (error) {
+       console.error('Error al obtener el número de visitas:', error);
+     }
+
+    }
+
+    // Llamar a la función cuando la página haya cargado
+    window.onload = obtenerNumeroRestaurantes;
+  </script>
+  
+
 </body>
 
 </html>

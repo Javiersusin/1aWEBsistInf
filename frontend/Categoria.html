@@ -60,99 +60,32 @@
         </div>
     </nav>
 
-    <!-- Seccion hero -->
     <section class="container-fluid hero-section"
-        style="height: calc(40vh - 80px); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden;">
-        <!-- Imagen de fondo con pseudo-elemento -->
-        <div class="background-image"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./img/delicious-pizza-isolated-white.jpg'); background-size: cover; background-position: center;  filter: brightness(50%);">
-        </div>
-        <!-- Contenido por encima de la imagen de fondo -->
-        <div class="row" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
-            <div class="col" style="color: rgb(255, 255, 255);">
-                <!-- Caja con color que incluye a h2 -->
-                <div class="caja-subtitulo">
-                    <h2 style="font-family: 'Oswald'; font-size: 36px;">¿Quieres #italiano? </h2>
-                </div>
+    style="height: calc(40vh - 80px); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden;">
+    <!-- Imagen de fondo con pseudo-elemento -->
+    <div class="background-image"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./img/delicious-pizza-isolated-white.jpg'); background-size: cover; background-position: center;  filter: brightness(50%);">
+    </div>
+    <!-- Contenido por encima de la imagen de fondo -->
+    <div class="row" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
+        <div class="col" style="color: rgb(255, 255, 255);">
+            <!-- Caja con color que incluye a h2 -->
+            <div class="caja-subtitulo">
+                <h2 id="tituloCategoria" style="font-family: 'Oswald'; font-size: 36px;">¿Quieres #italiano?</h2>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <hr>
-
-    <!-- Sección de restaurantes -->
-    <section class="restaurantes">
-        <div class="container">
-            <h3 style="font-family: 'Oswald';color: white;"> <u>Estos son los mejores restaurantes para
-                    ti:</u></h3>
-            <div class="restaurant-cards">
-                <div class="restaurant-card">
-                    <img src="restaurant1.jpg" alt="Restaurant 1">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 1</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 1.</p>
-                        <a href="restaurant1.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant2.jpg" alt="Restaurant 2">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 2</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 2.</p>
-                        <a href="restaurant2.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant3.jpg" alt="Restaurant 3">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 3</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 3.</p>
-                        <a href="restaurant3.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant4.jpg" alt="Restaurant 4">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 4</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 4.</p>
-                        <a href="restaurant4.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant5.jpg" alt="Restaurant 5">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 5</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 5.</p>
-                        <a href="restaurant5.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant6.jpg" alt="Restaurant 6">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 6</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 6.</p>
-                        <a href="restaurant6.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant7.jpg" alt="Restaurant 7">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 7</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 7.</p>
-                        <a href="restaurant7.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <img src="restaurant8.jpg" alt="Restaurant 8">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">Restaurant 8</h2>
-                        <p class="restaurant-description">A brief description of Restaurant 8.</p>
-                        <a href="restaurant8.html" class="restaurant-button">View Details</a>
-                    </div>
-                </div>
-            </div>
+<!-- Sección de restaurantes -->
+<section class="restaurantes">
+    <div class="container">
+        <h3 style="font-family: 'Oswald';color: white;"> <u>Estos son los mejores restaurantes para ti:</u></h3>
+        <div class="restaurant-cards" id="restaurant-cards">
+            <!-- Aquí se van a cargar los restaurantes dinámicamente -->
         </div>
-    </section>
+    </div>
+</section>
 
 
 
@@ -195,6 +128,51 @@
     </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para obtener el valor del parámetro "categoria" desde la URL
+        function obtenerCategoriaDesdeURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('categoria');
+        }
+      
+        document.addEventListener('DOMContentLoaded', async () => {
+            const categoria = obtenerCategoriaDesdeURL();
+            if (!categoria) {
+                console.error('No se encontró la categoría en la URL');
+                return;
+            }
+      
+            // Actualizar el título de la página con la categoría seleccionada
+            document.getElementById('tituloCategoria').textContent = `¿Quieres #${categoria}?`;
+      
+            // Hacer una llamada al backend para obtener los restaurantes de esta categoría
+            try {
+                const response = await fetch(`http://localhost:3000/api/restaurantesPorCategoria?categoria=${encodeURIComponent(categoria)}`);
+                const restaurantes = await response.json();
+                
+                const restaurantCards = document.getElementById('restaurant-cards');
+                restaurantCards.innerHTML = '';  // Limpiar el contenido anterior
+      
+                restaurantes.forEach(restaurante => {
+                    const card = document.createElement('div');
+                    card.classList.add('restaurant-card');
+      
+                    card.innerHTML = `
+                        <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
+                        <div class="restaurant-info">
+                            <h2 class="restaurant-name">${restaurante.nombre}</h2>
+                            <p class="restaurant-description">${restaurante.descripcion}</p>
+                            <a href="detallesRest.html?id=${restaurante.idRestaurante}" class="restaurant-button">View Details</a>
+                        </div>
+                    `;
+                    restaurantCards.appendChild(card);
+                });
+      
+            } catch (error) {
+                console.error('Error al obtener los restaurantes por categoría:', error);
+            }
+        });
+      </script>
 </body>
 
 </html>

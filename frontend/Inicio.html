@@ -86,47 +86,8 @@
         <div class=caja-subtitulo>
             <h2 class="titulo" style="font-family: 'Oswald'; font-size: 30px;">Los mejores de la semana</h2>
         </div>
-        <div class="top4">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="./img/restaurant1.jpeg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Restaurante 1</h5>
-                        <p class="card-text">Descripción</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="./img/restaurant2.jpeg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Restaurante 2</h5>
-                        <p class="card-text">Descripción</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="./img/restaurant3.jpeg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Restaurante 3</h5>
-                        <p class="card-text">Descripción</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="./img/restaurant2.jpeg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Restaurante 4</h5>
-                        <p class="card-text">Descripción</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
-                    </div>
-                </div>
-            </div>
+        <div class="top4" id="top-restaurantes">
+            <!-- Aquí se cargarán los 4 mejores restaurantes dinámicamente -->
         </div>
     </section>
 
@@ -140,28 +101,28 @@
                 <div class="menu-item">
                     <img src="img/delicious-pizza-isolated-white.jpg" alt="Pizza">
                     <h2>Pizzas</h2>
-                    <button>Ver más</button>
+                    <button onclick="irACategoria('Pizzas')">Ver más</button>
                 </div>
                 <div class="menu-item">
                     <img src="img/fotoCategoriaSushi.jpg" alt="Pizza">
                     <h2>Sushi</h2>
-                    <button>Ver más</button>
+                    <button onclick="irACategoria('Sushi')">Ver más</button>
                 </div>
                 <div class="menu-item">
                     <img src="img/fotoCategoriaHamburguesa.jpg" alt="Ensalada">
                     <h2>Hamburguesas</h2>
-                    <button>Ver más</button>
+                    <button onclick="irACategoria('Hamburguesas')">Ver más</button>
                 </div>
                 <div class="menu-item">
                     <img src="img/pexels-photo-3681641.jpeg" alt="Repostería">
                     <h2>Repostería</h2>
-                    <button>Ver más</button>
+                    <button onclick="irACategoria('Reposteria')">Ver más</button>
                 </div>
                 <div class="menu-item">
                     <img src="img/ea30ff2e1a7018b7ec9a1fe28ef3e3d12862ab6a26783481e4190a2102f7e7c7bab074d9c528fb72cf32a495b2714f548f85cf1a02061a26d3e9dd_1280.jpg"
                         alt="Cócteles">
                     <h2>Cócteles</h2>
-                    <button>Ver más</button>
+                    <button onclick="irACategoria('Cocteles')">Ver más</button>
                 </div>
             </div>
         </div>
@@ -383,54 +344,11 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-        try {
-            const response = await fetch('http://localhost:3000/api/mostrarRestaurantes');
-            const restaurantes = await response.json();
-            
-            console.log(restaurantes); // Para verificar qué datos se están recibiendo
-
-            const restaurantCards = document.querySelector('.restaurant-cards');
-            restaurantCards.innerHTML = ''; // Limpiar el contenido anterior
-
-            restaurantes.forEach(restaurante => {
-                const card = document.createElement('div');
-                card.classList.add('restaurant-card');
-
-                card.innerHTML = `
-                    <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
-                    <div class="restaurant-info">
-                        <h2 class="restaurant-name">${restaurante.nombre}</h2>
-                        <p class="restaurant-description">${restaurante.descripcion}.</p>
-                        <a href="detallesRest.html" class="restaurant-button">View Details</a>
-                    </div>
-                `;
-
-                restaurantCards.appendChild(card);
-            });
-        } catch (error) {
-            console.error('Error al obtener los restaurantes:', error);
+        // Función para redirigir a la página de categorías con la categoría seleccionada en la URL
+        function irACategoria(categoria) {
+            window.location.href = `Categoria.html?categoria=${encodeURIComponent(categoria)}`;
         }
-});
-     </script>
-
-<!-- <script>
-restaurantes.forEach(restaurante => {
-    const card = document.createElement('div');
-    card.classList.add('restaurant-card');
-
-    card.innerHTML = `
-        <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
-        <div class="restaurant-info">
-            <h2 class="restaurant-name">${restaurante.nombre}</h2>
-            <p class="restaurant-description">${restaurante.descripcion}.</p>
-            <a href="#" class="restaurant-button" data-id="${restaurante.idRestaurante}">View Details</a>
-        </div>
-    `;
-
-    restaurantCards.appendChild(card);
-});
-</script> -->
+    </script>
 
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
@@ -451,36 +369,80 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
                 <div class="restaurant-info">
                     <h2 class="restaurant-name">${restaurante.nombre}</h2>
-                    <p class="restaurant-description">${restaurante.descripcion}.</p>
-                    <a href="#" class="restaurant-button" data-id="${restaurante.idRestaurante}">View Details</a>
+                    <p class="restaurant-description">${restaurante.descripcion}</p>
+                    <a href="#" class="restaurant-button" data-id="${restaurante.nombre}">View Details</a>
                 </div>
             `;
-
             restaurantCards.appendChild(card);
         });
-
-        // Añade un evento click a los botones de "View Details"
-        document.querySelectorAll('.restaurant-button').forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault();  // Evita que el enlace navegue automáticamente
-
-                const restaurantId = button.getAttribute('data-id');
+        // Agregar evento click a todos los botones de "View Details"
+        const botonesDetalles = document.querySelectorAll('.restaurant-button');
+        botonesDetalles.forEach(boton => {
+            boton.addEventListener('click', async (event) => {
+                event.preventDefault();
                 
-                // Guarda el ID o los datos completos en sessionStorage/localStorage
-                const selectedRestaurant = restaurantes.find(r => r.idRestaurante == restaurantId);
-                
-                // Guarda el restaurante seleccionado como JSON
-                sessionStorage.setItem('selectedRestaurant', JSON.stringify(selectedRestaurant));
+                const idRestaurante = boton.getAttribute('data-id');
+                console.log('Le mando:', idRestaurante);
+                try {
+                    // Llamada al backend para incrementar las visitas
+                    const respuesta = await fetch('http://localhost:3000/api/actualizarVisitas', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ idRestaurante })
+                    });
 
-                // Redirigir a la página de detalles
-                window.location.href = "detalleRestaurante.html";
+                    if (respuesta.ok) {
+                        alert('Visita registrada correctamente');
+                        // Opcional: Redirigir a la página de detalles del restaurante
+                        window.location.href = `detallesRest.html?id=${idRestaurante}`;
+                    } else {
+                        alert('Error al registrar la visita');
+                    }
+                } catch (error) {
+                    console.error('Error al incrementar las visitas:', error);
+                }
             });
         });
+
+
     } catch (error) {
         console.error('Error al obtener los restaurantes:', error);
     }
 });
+</script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/topRestaurantes'); // Llamada a la nueva ruta
+            const restaurantes = await response.json();
+            
+            const topRestaurantesContainer = document.getElementById('top-restaurantes');
+            topRestaurantesContainer.innerHTML = ''; // Limpiar el contenido anterior
+
+            restaurantes.forEach(restaurante => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-4');
+
+                card.innerHTML = `
+                    <div class="card">
+                        <img src="${restaurante.fotos}" class="card-img-top" alt="${restaurante.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${restaurante.nombre}</h5>
+                            <p class="card-text">${restaurante.descripcion}</p>
+                            <a href="paginaRestaurante.html?id=${restaurante.nombre}" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                `;
+
+                topRestaurantesContainer.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Error al obtener los mejores restaurantes:', error);
+        }
+    });
 </script>
 
 

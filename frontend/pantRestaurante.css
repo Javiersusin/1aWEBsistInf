@@ -13,6 +13,15 @@
     background-color: #adbd19;
     border-radius: 10px;
 }
+.join-link {
+    color: white;
+    text-decoration: none; /* Opcional, para quitar el subrayado */
+}
+
+.join-link:hover {
+    color: #ffcc00; /* Cambia el color a uno de tu elección */
+    text-decoration: underline; /* Esto hará que el enlace se subraye al hacer hover (opcional) */
+}
 
 .u-map {
     width: 100%;

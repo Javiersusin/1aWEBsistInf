@@ -34,5 +34,24 @@ router.put('/actualizarRestaurante', async (req, res) => {
     }
 });
 
+router.post('/actualizarVisitas', async (req, res) => {
+    const { idRestaurante } = req.body;
+  
+    if (!idRestaurante) {
+      return res.status(400).json({ message: 'Falta el id del restaurante' });
+    }
+  
+    try {
+      // Incrementar el número de visitas del restaurante
+      console.log('Incrementando el número de visitas del restaurante:', idRestaurante);
+      await db.query('UPDATE restaurante SET visitas = visitas + 1 WHERE nombre = $1', [idRestaurante]);
+  
+      res.status(200).json({ message: 'Visita registrada correctamente' });
+    } catch (error) {
+      console.error('Error al actualizar las visitas:', error);
+      res.status(500).json({ message: 'Error al actualizar las visitas' });
+    }
+  });
+
 
 module.exports = router;
