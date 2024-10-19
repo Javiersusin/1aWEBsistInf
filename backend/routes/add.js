@@ -114,10 +114,10 @@ router.post('/user', async (req, res) => {
 //  //Ademas deberia de descomentar las lineas de const Restaurante...
 // // Ruta para agregar un nuevo usuario (esto no hace fallar)
 router.post('/restaurant', async (req, res) => {
-  const { jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion} = req.body;
+  const { jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion, categoria} = req.body;
 
   try {
-    const result = await RestauranteDAO.createRestaurante(jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion);
+    const result = await RestauranteDAO.createRestaurante(jefe, aforo, fotos, urlweb, telefono, descripcion, email, nombre, ubicacion, categoria);
     res.status(201).json({ message: 'Restaurante registrado exitosamente', idRestaurante: result.insertId });
   } catch (error) {
     console.error('Error al registrar el restaurante:', error);
