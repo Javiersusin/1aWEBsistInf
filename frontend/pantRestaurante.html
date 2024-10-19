@@ -177,6 +177,44 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script>
+    // Función que incrementa el contador de visitas de un restaurante
+    function registrarVisita(nombreRestaurante) {
+        // Obtener el número actual de visitas desde localStorage
+        let visitas = localStorage.getItem(nombreRestaurante);
+
+        // Si no hay un valor, inicializar en 0
+        if (!visitas) {
+            visitas = 0;
+        }
+
+        // Incrementar el contador de visitas
+        visitas = parseInt(visitas) + 1;
+
+        // Guardar el nuevo valor en localStorage
+        localStorage.setItem(nombreRestaurante, visitas);
+    }
+</script>
+
+<script>
+  // Obtener y mostrar el número de visitas para un restaurante específico
+  function mostrarVisitas(nombreRestaurante) {
+      let visitas = localStorage.getItem(nombreRestaurante);
+
+      if (!visitas) {
+          visitas = 0;  // Si no hay visitas previas, mostrar 0
+      }
+
+      document.getElementById('contador-visitas').innerText = 'Visitas: ' + visitas;
+  }
+
+  // Llamar a la función para mostrar las visitas del restaurante actual
+  mostrarVisitas(nombreRestaurante); // Cambiar el nombre según el restaurante
+</script>
+
+<p id="contador-visitas">Visitas: 0</p>
+
+
 
 </body>
 
