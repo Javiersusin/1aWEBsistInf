@@ -332,6 +332,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (response.ok) {
             alert('Restaurante actualizado exitosamente');
+            window.location.href = 'Modojefe.html';  // Vuelvo a la página con los datos del restaurante
         } else {
             const errorData = await response.json();
             alert(`Error al actualizar el restaurante: ${errorData.error}`);
