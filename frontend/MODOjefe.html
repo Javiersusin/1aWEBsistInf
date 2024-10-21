@@ -109,20 +109,15 @@
             </div>
             <div class="stats">
                 <div class="stat">
-                    <span>381</span>
-                    <p>Redirecciones</p> <!-- Redirecciones a la página del restaurante -->
-                </div>
-                <div class="stat">
-                    <span>236</span>
+                    <span id="resenas-numero">0</span>
                     <p>Reseñas</p>
                 </div>
                 <div class="stat">
-                    <span>562</span>
+                    <span id="visitas-numero">0</span>
                     <p>Visitas</p> <!-- Visitas a la pantalla principal del restaurante -->
                 </div>
             </div>
         </div>
-        <a href="#" class="join-link">¿Quieres unirte?</a>
     </footer>
 
 
@@ -154,9 +149,10 @@
 
         <div class="container-fluid map-container" id="mapa">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item"
+                <!-- <iframe class="embed-responsive-item"
                     src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
-                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe>
+                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe> -->
+                    <p><a id="map-link" href="#" target="_blank" style="font-family: 'Oswald'; font-size: 20px;">Cargando ubicación...</a></p>
             </div>
         </div>
 
@@ -222,20 +218,6 @@
     </container>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Seccion de contacto -->
     <section id="contacto" class="contacto">
         <div class="contact-section">
@@ -270,7 +252,67 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+    const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde el sessionStorage
+    
+    if (!jefe) {
+        console.error('El nombre de usuario del jefe no está disponible, inicie sesión de nuevo');
+        return;
+    }
 
+    try {
+        // Llamada para obtener el número de reseñas
+        const responseResenas = await fetch(`http://localhost:3000/api/RestResenas?jefe=${encodeURIComponent(jefe)}`);
+        const dataResenas = await responseResenas.json();
+    
+        // Actualizar el HTML con el número de reseñas
+        document.getElementById('resenas-numero').textContent = dataResenas.totalResenas;
+    } catch (error) {
+        console.error('Error al obtener el número de reseñas:', error);
+    }
+
+    try {
+        // Llamada para obtener la suma de visitas
+        const responseVisitas = await fetch(`http://localhost:3000/api/RestVisitas?jefe=${encodeURIComponent(jefe)}`);
+        const dataVisitas = await responseVisitas.json();
+    
+        // Actualizar el HTML con el número de visitas
+        document.getElementById('visitas-numero').textContent = dataVisitas.totalVisitas;
+    } catch (error) {
+        console.error('Error al obtener el número de visitas:', error);
+    }
+    });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde sessionStorage
+    
+        if (!jefe) {
+            console.error('El nombre de usuario del jefe no está disponible');
+            return;
+        }
+    
+        try {
+            // Hacer una solicitud para obtener la ubicación del restaurante del jefe
+            const response = await fetch(`http://localhost:3000/api/ubicacionRestaurante?jefe=${encodeURIComponent(jefe)}`);
+            const data = await response.json();
+            
+            if (!data.ubicacion) {
+                console.error('No se encontró ninguna ubicación');
+                return;
+            }
+    
+            // Actualizar el enlace de Google Maps con la ubicación obtenida
+            const mapLink = document.getElementById('map-link');
+            mapLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.ubicacion)}`;
+            mapLink.textContent = data.ubicacion;
+        } catch (error) {
+            console.error('Error al obtener la ubicación del restaurante:', error);
+        }
+    });
+    </script>
 
 </body>
 

@@ -383,6 +383,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 const idRestaurante = boton.getAttribute('data-id');
                 console.log('Le mando:', idRestaurante);
+                 //guardo en variable el nombre del restaurante
+                sessionStorage.setItem('selectedRestaurant', idRestaurante);
+                console.log('mando:', sessionStorage.getItem('selectedRestaurant'));
                 try {
                     // Llamada al backend para incrementar las visitas
                     const respuesta = await fetch('http://localhost:3000/api/actualizarVisitas', {
@@ -432,12 +435,28 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div class="card-body">
                             <h5 class="card-title">${restaurante.nombre}</h5>
                             <p class="card-text">${restaurante.descripcion}</p>
-                            <a href="paginaRestaurante.html?id=${restaurante.nombre}" class="btn btn-primary">Ver más</a>
+                            <a href="detallesRest.html?id=${restaurante.nombre}" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 `;
 
                 topRestaurantesContainer.appendChild(card);
+            });
+                        // Agregar evento click a todos los botones de "Ver más" en la sección de los mejores de la semana
+                        const botonesTopRestaurantes = document.querySelectorAll('.top-restaurant-button');
+            botonesTopRestaurantes.forEach(boton => {
+                boton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevenir la navegación por defecto
+                    
+                    const idRestaurante = boton.getAttribute('data-id');
+                    
+                    // Guardar el nombre del restaurante en sessionStorage
+                    sessionStorage.setItem('selectedRestaurant', idRestaurante);
+                    console.log('mando:', sessionStorage.getItem('selectedRestaurant'));
+                    
+                    // Redirigir a la página de detalles
+                    window.location.href = `detallesRest.html?id=${idRestaurante}`;
+                });
             });
         } catch (error) {
             console.error('Error al obtener los mejores restaurantes:', error);

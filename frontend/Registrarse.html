@@ -385,7 +385,7 @@
           // Recuperamos el nombre de usuario (jefe) almacenado en sessionStorage
           const jefe = sessionStorage.getItem('username');
           if (!jefe) {
-            alert('No se ha encontrado el nombre de usuario. Por favor, vuelva a iniciar sesión.');
+            alert('Primero inicie aquí sesión y pulse en Enviar');
             return;
           }
       
@@ -510,15 +510,15 @@
         });
       </script>
 
-<script>
+<!-- <script>
   // Función para cargar los datos del restaurante cuando la página se cargue
   window.onload = async function () {
     // Obtenemos el nombre de usuario (jefe) almacenado en sessionStorage
     const jefe = sessionStorage.getItem('username');
-    if (!jefe) {
-      alert('No se ha encontrado el nombre de usuario. Por favor, vuelva a iniciar sesión.');
-      return;
-    }
+    //if (!jefe) {
+    //  alert('No se ha encontrado el nombre de usuario. Por favor, vuelva a iniciar sesión.');
+    //  return;
+    //}
 
     // Hacemos la petición al backend para obtener los datos del restaurante
     try {
@@ -550,7 +550,7 @@
       alert('Hubo un problema al intentar cargar los datos del restaurante. Inténtalo más tarde.');
     }
   };
-</script>
+</script> -->
 
     
 

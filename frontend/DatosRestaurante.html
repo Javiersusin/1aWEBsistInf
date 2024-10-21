@@ -215,7 +215,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="font-family: 'Oswald'; font-size: 20px;">Guardar
+            <button type="submit" class="btn btn-primary" style="font-family: 'Oswald'; font-size: 20px;" >Guardar
                 local</button>
         </form>
     </section>
@@ -332,6 +332,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (response.ok) {
             alert('Restaurante actualizado exitosamente');
+            window.location.href = './MODOjefe.html';
         } else {
             const errorData = await response.json();
             alert(`Error al actualizar el restaurante: ${errorData.error}`);

@@ -129,49 +129,127 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Función para obtener el valor del parámetro "categoria" desde la URL
-        function obtenerCategoriaDesdeURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('categoria');
-        }
+    //     // Función para obtener el valor del parámetro "categoria" desde la URL
+    //     function obtenerCategoriaDesdeURL() {
+    //         const params = new URLSearchParams(window.location.search);
+    //         return params.get('categoria');
+    //     }
       
-        document.addEventListener('DOMContentLoaded', async () => {
-            const categoria = obtenerCategoriaDesdeURL();
-            if (!categoria) {
-                console.error('No se encontró la categoría en la URL');
-                return;
-            }
+    //     document.addEventListener('DOMContentLoaded', async () => {
+    //         const categoria = obtenerCategoriaDesdeURL();
+    //         if (!categoria) {
+    //             console.error('No se encontró la categoría en la URL');
+    //             return;
+    //         }
       
-            // Actualizar el título de la página con la categoría seleccionada
-            document.getElementById('tituloCategoria').textContent = `¿Quieres #${categoria}?`;
+    //         // Actualizar el título de la página con la categoría seleccionada
+    //         document.getElementById('tituloCategoria').textContent = `¿Quieres #${categoria}?`;
       
-            // Hacer una llamada al backend para obtener los restaurantes de esta categoría
-            try {
-                const response = await fetch(`http://localhost:3000/api/restaurantesPorCategoria?categoria=${encodeURIComponent(categoria)}`);
-                const restaurantes = await response.json();
+    //         // Hacer una llamada al backend para obtener los restaurantes de esta categoría
+    //         try {
+    //             const response = await fetch(`http://localhost:3000/api/restaurantesPorCategoria?categoria=${encodeURIComponent(categoria)}`);
+    //             const restaurantes = await response.json();
                 
-                const restaurantCards = document.getElementById('restaurant-cards');
-                restaurantCards.innerHTML = '';  // Limpiar el contenido anterior
+    //             const restaurantCards = document.getElementById('restaurant-cards');
+    //             restaurantCards.innerHTML = '';  // Limpiar el contenido anterior
       
-                restaurantes.forEach(restaurante => {
-                    const card = document.createElement('div');
-                    card.classList.add('restaurant-card');
+    //             restaurantes.forEach(restaurante => {
+    //                 const card = document.createElement('div');
+    //                 card.classList.add('restaurant-card');
+                    
+    //                 card.innerHTML = `
+    //                     <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
+    //                     <div class="restaurant-info">
+    //                         <h2 class="restaurant-name">${restaurante.nombre}</h2>
+    //                         <p class="restaurant-description">${restaurante.descripcion}</p>
+    //                         <a href="detallesRest.html?id=${restaurante.nombre}" class="restaurant-button">View Details</a>
+    //                     </div>
+    //                 `;
+    //                 restaurantCards.appendChild(card);
+    //             });
+
       
-                    card.innerHTML = `
-                        <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
-                        <div class="restaurant-info">
-                            <h2 class="restaurant-name">${restaurante.nombre}</h2>
-                            <p class="restaurant-description">${restaurante.descripcion}</p>
-                            <a href="detallesRest.html?id=${restaurante.idRestaurante}" class="restaurant-button">View Details</a>
-                        </div>
-                    `;
-                    restaurantCards.appendChild(card);
-                });
-      
-            } catch (error) {
-                console.error('Error al obtener los restaurantes por categoría:', error);
-            }
+    //         } catch (error) {
+    //             console.error('Error al obtener los restaurantes por categoría:', error);
+    //         }
+        
+    //     });
+    //     // Añadir el evento click para guardar el nombre del restaurante en sessionStorage
+    //     document.querySelectorAll('.restaurant-button').forEach(button => {
+    //     button.addEventListener('click', (event) => {
+    //         event.preventDefault(); // Prevenir la navegación por defecto
+
+    //         // Obtener el nombre del restaurante desde el atributo data-nombre
+    //         const nombreRestaurante = event.target.getAttribute('data-nombre');
+
+    //         // Guardar el nombre del restaurante en sessionStorage
+    //         sessionStorage.setItem('selectedRestaurant', nombreRestaurante);
+    //         console.log('mando:', sessionStorage.getItem('selectedRestaurant'));
+    //         // Redirigir a la página de detalles
+    //         window.location.href = 'detallesRest.html';
+    //     });
+    // });
+    // Función para obtener el valor del parámetro "categoria" desde la URL
+function obtenerCategoriaDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('categoria');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const categoria = obtenerCategoriaDesdeURL();
+    if (!categoria) {
+        console.error('No se encontró la categoría en la URL');
+        return;
+    }
+
+    // Actualizar el título de la página con la categoría seleccionada
+    document.getElementById('tituloCategoria').textContent = `¿Quieres #${categoria}?`;
+
+    // Hacer una llamada al backend para obtener los restaurantes de esta categoría
+    try {
+        const response = await fetch(`http://localhost:3000/api/restaurantesPorCategoria?categoria=${encodeURIComponent(categoria)}`);
+        const restaurantes = await response.json();
+        
+        const restaurantCards = document.getElementById('restaurant-cards');
+        restaurantCards.innerHTML = '';  // Limpiar el contenido anterior
+
+        restaurantes.forEach(restaurante => {
+            const card = document.createElement('div');
+            card.classList.add('restaurant-card');
+            
+            // Generar el HTML para cada restaurante
+            card.innerHTML = `
+                <img src="${restaurante.fotos}" alt="${restaurante.nombre}">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name">${restaurante.nombre}</h2>
+                    <p class="restaurant-description">${restaurante.descripcion}</p>
+                    <a href="#" class="restaurant-button" data-nombre="${restaurante.nombre}">View Details</a>
+                </div>
+            `;
+            restaurantCards.appendChild(card);
         });
+
+        // Después de generar las tarjetas, añadir los eventos click a los botones
+        document.querySelectorAll('.restaurant-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevenir la navegación por defecto
+
+                // Obtener el nombre del restaurante desde el atributo data-nombre
+                const nombreRestaurante = event.target.getAttribute('data-nombre');
+
+                // Guardar el nombre del restaurante en sessionStorage
+                sessionStorage.setItem('selectedRestaurant', nombreRestaurante);
+                console.log('mando:', sessionStorage.getItem('selectedRestaurant'));
+
+                // Redirigir a la página de detalles
+                window.location.href = 'detallesRest.html';
+            });
+        });
+
+    } catch (error) {
+        console.error('Error al obtener los restaurantes por categoría:', error);
+    }
+});
       </script>
 </body>
 

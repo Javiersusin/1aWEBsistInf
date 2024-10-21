@@ -29,8 +29,8 @@ router.get('/mostrarFormularioRestaurante', async (req, res) => {
         }
         res.json(restaurante);
     } catch (error) {
-        console.error('Error al obtener los datos del restaurante', error);
-        res.status(500).json({ error: 'Error al obtener los datos del restaurante' });
+        console.error('Error al obtener los datos del restaurante en get.js lin 32', error);
+        res.status(500).json({ error: 'Error al obtener los datos del restaurante get.js lin 33' });
     }
 });
 
@@ -58,6 +58,19 @@ router.get('/numResenas', async (req, res) => {
     }
   });
 
+router.get('/RestResenas', async (req, res) => {
+    const { jefe } = req.query;
+
+    try {
+        const result = await db.query('SELECT COUNT(*) as totalResenas FROM resenas WHERE restaurante IN (SELECT idrestaurante FROM restaurante WHERE jefe = $1)', [jefe]);
+        res.json({ totalResenas: result.rows[0].totalresenas || 0 });
+    } catch (error) {
+        console.error('Error al obtener el número de reseñas:', error);
+        res.status(500).json({ message: 'Error al obtener el número de reseñas' });
+    }
+});
+
+
   router.get('/sumaVisitas', async (req, res) => {
     try {
       // Consulta SQL para sumar la columna "visitas"
@@ -70,6 +83,21 @@ router.get('/numResenas', async (req, res) => {
       res.status(500).json({ message: 'Error al obtener la suma de visitas' });
     }
   });
+
+
+router.get('/RestVisitas', async (req, res) => {
+    const { jefe } = req.query;
+
+    try {
+        const result = await db.query('SELECT SUM(visitas) as totalVisitas FROM restaurante WHERE jefe = $1', [jefe]);
+        res.json({ totalVisitas: result.rows[0].totalvisitas || 0 });
+    } catch (error) {
+        console.error('Error al obtener el número de visitas:', error);
+        res.status(500).json({ message: 'Error al obtener el número de visitas' });
+    }
+});
+
+
   
   router.get('/restaurantesPorCategoria', async (req, res) => {
     const { categoria } = req.query;
@@ -99,5 +127,46 @@ router.get('/topRestaurantes', async (req, res) => {
   }
 });
 
+
+router.get('/ubicacionRestaurante', async (req, res) => {
+  const { jefe } = req.query;
+
+  try {
+      const result = await db.query('SELECT ubicacion FROM restaurante WHERE jefe = $1 LIMIT 1', [jefe]);
+      
+      if (result.rows.length === 0) {
+          return res.status(404).json({ message: 'No se encontró ningún restaurante para este jefe' });
+      }
+
+      res.json({ ubicacion: result.rows[0].ubicacion });
+  } catch (error) {
+      console.error('Error al obtener la ubicación del restaurante:', error);
+      res.status(500).json({ message: 'Error al obtener la ubicación del restaurante' });
+  }
+});
+
+
+// Ruta para obtener los detalles de un restaurante por nombre
+router.get('/detallesRestaurante', async (req, res) => {
+  const { nombre } = req.query;
+
+  if (!nombre) {
+      return res.status(400).json({ message: 'El nombre del restaurante es requerido' });
+  }
+
+  try {
+      const result = await db.query('SELECT * FROM restaurante WHERE nombre = $1', [nombre]);
+
+      if (result.rows.length === 0) {
+          return res.status(404).json({ message: 'Restaurante no encontrado' });
+      }
+
+      // Devolver los detalles del restaurante
+      res.json(result.rows[0]);
+  } catch (error) {
+      console.error('Error al obtener el restaurante:', error);
+      res.status(500).json({ message: 'Error al obtener los datos del restaurante' });
+  }
+});
 
 module.exports = router; // Exporta el router
