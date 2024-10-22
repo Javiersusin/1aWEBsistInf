@@ -4,6 +4,7 @@
     background-color: rgb(243, 227, 52);
 } */
 
+
 .navbar-collapse {
     align-items: center;
     justify-content: space-between;
@@ -272,7 +273,7 @@ footer {
     margin: 2rem 0;
 }
 
-.contact-info {
+ .contact-info {
     background-color: #f8f9fa;
     border-radius: 10px;
     padding: 2rem;
@@ -282,7 +283,9 @@ footer {
 
 .contact-info h2 {
     margin-bottom: 1rem;
-}
+} 
+/* Hacer que las consultas se adapten al tamaño del contenedor */
+
 
 .reservation-section {
     text-align: center;
@@ -319,11 +322,10 @@ footer {
     overflow-y: auto;
 }
 
-.carruselTipos .col-md-4 {
+ .carruselTipos .col-md-4 {
     margin: 10px;
     min-width: 200px;
-}
-
+} 
 
 
 footer {

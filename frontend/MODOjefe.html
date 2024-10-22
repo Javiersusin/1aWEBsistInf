@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="MODOjefe.css">
     <link rel="stylesheet" href="RegistrarseUSUARIO.css">
 
+     <!-- Calendario CSS -->
+     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.css' rel='stylesheet' />
+
     <!--Fuentes de letras-->
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -125,7 +128,7 @@
     <container class="VistaPrevia" id="vistaPrevia">
         <section class="subtitulo-vista-previa">
             <div class="caja-subtitulo">
-                <h1>Vista previa de tu restaurante</h1>
+                <h1><strong>Nombre:</strong> <span id="nombreRestaurante"></span></h1>
             </div>
         </section>
         <!-- #################################VISTA PREVIA DEL RESTAURANTE#################################################-->
@@ -138,7 +141,7 @@
                     <div class="info-box">
                         <h2><b>Encuéntrenos</b></h2>
                         <!-- <h4>dónde</h5> -->
-                        <p>676 Pacific C Highway<br>Huntington Beach, CA 67898</p>
+                        <p><strong>Ubicación:</strong> <span id="ubicacionRestaurante"></span></p>
                         <a href="#mapa" class="btn btn-primary btn-custom">Ver mapa</a>
                         <a href="#reservar" class="btn btn-outline-dark btn-custom">Reservar una mesa</a>
                         <h5>cuando</h5>
@@ -150,10 +153,9 @@
 
         <div class="container-fluid map-container" id="mapa">
             <div class="embed-responsive embed-responsive-16by9">
-                <!-- <iframe class="embed-responsive-item"
+                <iframe class="embed-responsive-item"
                     src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
-                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe> -->
-                    <p><a id="map-link" href="#" target="_blank" style="font-family: 'Oswald'; font-size: 20px;">Cargando ubicación...</a></p>
+                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe>
             </div>
         </div>
 
@@ -161,15 +163,20 @@
             <div class="row">
                 <div class="col-md-6 contact-info">
                     <h2><b><u>Consultas</u></b></h2>
-                    <h6>CONSULTAS DE RR.PP. Y MARKETING</h5>
-                        <p>+1 234 567 77 66</p>
-                        <h6>CONSULTAS DE CATERING</h5>
-                            <p>+1 234 567 77 66</p>
+                    <h6>CONOCE NUESTRA WEB</h5>
+                        <p><strong>URL:</strong> <a id="urlRestaurante" href="" target="_blank">Visitar sitio web</a></p>
+                        <h6>CONTACTO</h5>
                             <h6>RESERVAS Y CENAS PRIVADAS</h5>
-                                <p>+1 234 567 77 66</p>
+                                <p><strong>Teléfono:</strong> <span id="telefonoRestaurante"></span></p>
+                                <p><strong>Email:</strong> <span id="emailRestaurante"></span></p>
                 </div>
-                <div class="col-md-6 image-container">
+                <!-- <div class="col-md-6 image-container">
                     <img src="./img/1669.jpg" alt="Un camarero atendiendo una mesa" class="img-fluid">
+                </div> -->
+                <div class="col-md-6 image-container">
+                    <!-- Div donde se renderizará el calendario -->
+                    <div id='calendar'></div>
+                </div>
                 </div>
             </div>
         </section>
@@ -252,69 +259,125 @@
         </div>
     </section>
 
+    <!-- Calendar Script -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
-    const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde el sessionStorage
-    
-    if (!jefe) {
-        console.error('El nombre de usuario del jefe no está disponible, inicie sesión de nuevo');
-        return;
-    }
+            const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde el sessionStorage
+            
+            if (!jefe) {
+                console.error('El nombre de usuario del jefe no está disponible, inicie sesión de nuevo');
+                return;
+            }
 
-    try {
-        // Llamada para obtener el número de reseñas
-        const responseResenas = await fetch(`http://localhost:3000/api/RestResenas?jefe=${encodeURIComponent(jefe)}`);
-        const dataResenas = await responseResenas.json();
-    
-        // Actualizar el HTML con el número de reseñas
-        document.getElementById('resenas-numero').textContent = dataResenas.totalResenas;
-    } catch (error) {
-        console.error('Error al obtener el número de reseñas:', error);
-    }
+            try {
+                // Llamada para obtener el número de reseñas
+                const responseResenas = await fetch(`http://localhost:3000/api/RestResenas?jefe=${encodeURIComponent(jefe)}`);
+                const dataResenas = await responseResenas.json();
+            
+                // Actualizar el HTML con el número de reseñas
+                document.getElementById('resenas-numero').textContent = dataResenas.totalResenas;
+            } catch (error) {
+                console.error('Error al obtener el número de reseñas:', error);
+            }
 
-    try {
-        // Llamada para obtener la suma de visitas
-        const responseVisitas = await fetch(`http://localhost:3000/api/RestVisitas?jefe=${encodeURIComponent(jefe)}`);
-        const dataVisitas = await responseVisitas.json();
-    
-        // Actualizar el HTML con el número de visitas
-        document.getElementById('visitas-numero').textContent = dataVisitas.totalVisitas;
-    } catch (error) {
-        console.error('Error al obtener el número de visitas:', error);
-    }
-    });
+            try {
+                // Llamada para obtener la suma de visitas
+                const responseVisitas = await fetch(`http://localhost:3000/api/RestVisitas?jefe=${encodeURIComponent(jefe)}`);
+                const dataVisitas = await responseVisitas.json();
+            
+                // Actualizar el HTML con el número de visitas
+                document.getElementById('visitas-numero').textContent = dataVisitas.totalVisitas;
+            } catch (error) {
+                console.error('Error al obtener el número de visitas:', error);
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde sessionStorage
+        
+            if (!jefe) {
+                console.error('El nombre de usuario del jefe no está disponible');
+                return;
+            }
+        
+            try {
+                // Hacer una solicitud para obtener la ubicación del restaurante del jefe
+                const response = await fetch(`http://localhost:3000/api/ubicacionRestaurante?jefe=${encodeURIComponent(jefe)}`);
+                const data = await response.json();
+                
+                if (!data.ubicacion) {
+                    console.error('No se encontró ninguna ubicación');
+                    return;
+                }
+        
+                // Actualizar el enlace de Google Maps con la ubicación obtenida
+                const mapLink = document.getElementById('map-link');
+                mapLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.ubicacion)}`;
+                mapLink.textContent = data.ubicacion;
+            } catch (error) {
+                console.error('Error al obtener la ubicación del restaurante:', error);
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Recupera el nombre del restaurante seleccionado desde sessionStorage
+            const nombreRestaurante = sessionStorage.getItem('selectedRestaurant');
+
+            if (!nombreRestaurante) {
+                alert('No se encontraron los datos del restaurante.');
+                return;
+            }
+
+            try {
+                // Hacer una petición al backend para obtener los detalles del restaurante
+                const response = await fetch(`http://localhost:3000/api/detallesRestaurante?nombre=${encodeURIComponent(nombreRestaurante)}`);
+                const restaurante = await response.json();
+
+                if (!restaurante) {
+                    alert('No se encontraron los datos del restaurante en la base de datos.');
+                    return;
+                }
+
+                // Rellena los elementos con los datos del restaurante
+                document.getElementById('nombreRestaurante').textContent = restaurante.nombre;
+                document.getElementById('fotoRestaurante').src = restaurante.fotos;
+                document.getElementById('descripcionRestaurante').textContent = restaurante.descripcion;
+                document.getElementById('telefonoRestaurante').textContent = restaurante.telefono;
+                document.getElementById('ubicacionRestaurante').textContent = restaurante.ubicacion;
+                document.getElementById('aforoRestaurante').textContent = restaurante.aforo;
+                document.getElementById('emailRestaurante').textContent = restaurante.email;
+                document.getElementById('urlRestaurante').href = restaurante.URLweb;
+                document.getElementById('urlRestaurante').textContent = restaurante.URLweb || 'No disponible';
+            } catch (error) {
+                console.error('Error al obtener los detalles del restaurante:', error);
+                alert('Hubo un problema al cargar los datos del restaurante.');
+            }
+        });
     </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        const jefe = sessionStorage.getItem('username');  // Obtener el nombre de usuario del jefe desde sessionStorage
-    
-        if (!jefe) {
-            console.error('El nombre de usuario del jefe no está disponible');
-            return;
-        }
-    
-        try {
-            // Hacer una solicitud para obtener la ubicación del restaurante del jefe
-            const response = await fetch(`http://localhost:3000/api/ubicacionRestaurante?jefe=${encodeURIComponent(jefe)}`);
-            const data = await response.json();
-            
-            if (!data.ubicacion) {
-                console.error('No se encontró ninguna ubicación');
-                return;
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        
+        // Inicialización de FullCalendar
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',  // Mostrar el mes completo
+            locale: 'es',  // Idioma en español
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek'
             }
-    
-            // Actualizar el enlace de Google Maps con la ubicación obtenida
-            const mapLink = document.getElementById('map-link');
-            mapLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.ubicacion)}`;
-            mapLink.textContent = data.ubicacion;
-        } catch (error) {
-            console.error('Error al obtener la ubicación del restaurante:', error);
-        }
+        });
+        calendar.render();
     });
-    </script>
-
+</script>
 </body>
 
 </html>
