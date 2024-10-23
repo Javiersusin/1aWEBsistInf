@@ -156,9 +156,7 @@
                 <!-- <iframe class="embed-responsive-item"
                     src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
                     data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe> -->
-                    <iframe id="mapaRestaurante" class="embed-responsive-item"
-                    src="https://maps.google.com/maps?output=embed&amp;q=Zaragoza%2C%20Espa%C3%B1a&amp;z=13&amp;t=m"
-                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyWmFyYWdvemElMkMlMjBFc3BhJUMzJUIxYSUyMiUyQyUyMnpvb20lMjIlM0ExMyUyQyUyMnR5cGVJZCUyMiUzQSUyMnJvYWQlMjIlMkMlMjJsYW5nJTIyJTNBbnVsbCUyQyUyMmFwaUtleSUyMiUzQW51bGwlMkMlMjJtYXJrZXJzJTIyJTNBJTVCJTVEJTdE"></iframe>
+                    <iframe id="mapaRestaurante" class="embed-responsive-item"></iframe>
                 
                 </div>
         </div>
@@ -323,7 +321,7 @@
                 // Actualizar el mapa con la ubicación del restaurante
                 const iframeMapa = document.getElementById('mapaRestaurante');
                 const ubicacion = encodeURIComponent(restaurante.ubicacion); // Asegúrate de codificar la URL para evitar errores
-                const nuevaURL = `https://maps.google.com/maps?q=${ubicacion}&z=15&output=embed`;  // Zoom nivel 15 para que se vea bien cerca del lugar
+                const nuevaURL = `https://maps.google.com/maps?q=${ubicacion}&z=15&output=embed`;  // Zoom nivel 15 para que se vea bien cerca del lugar, donde poner ahora ubicacion antes era zgz
                 iframeMapa.src = nuevaURL;
 
             } catch (error) {

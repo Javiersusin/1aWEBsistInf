@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="autor" content="Hugo López">
+    <meta name="autor" content="BiteFinder">
     <meta name="description" content="Página de Inicio, de aquí se puede acceder a las secciones principales">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,13 +118,13 @@
                 <div class="menu-item">
                     <img src="img/pexels-photo-3681641.jpeg" alt="Repostería">
                     <h2>Repostería</h2>
-                    <button onclick="irACategoria('Reposteria')">Ver más</button>
+                    <button onclick="irACategoria('Repostería')">Ver más</button>
                 </div>
                 <div class="menu-item">
                     <img src="img/ea30ff2e1a7018b7ec9a1fe28ef3e3d12862ab6a26783481e4190a2102f7e7c7bab074d9c528fb72cf32a495b2714f548f85cf1a02061a26d3e9dd_1280.jpg"
                         alt="Cócteles">
                     <h2>Cócteles</h2>
-                    <button onclick="irACategoria('Cocteles')">Ver más</button>
+                    <button onclick="irACategoria('Cócteles')">Ver más</button>
                 </div>
             </div>
         </div>
@@ -238,7 +238,7 @@
                     restaurantes</h3>
             </div>
             <div class="restaurant-cards">
-                <div class="restaurant-card">
+                <!-- <div class="restaurant-card">
                     <img src="restaurant1.jpg" alt="Restaurant 1">
                     <div class="restaurant-info">
                         <h2 class="restaurant-name">Restaurant 1</h2>
@@ -301,7 +301,7 @@
                         <p class="restaurant-description">A brief description of Restaurant 8.</p>
                         <a href="restaurant8.html" class="restaurant-button">View Details</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -358,8 +358,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('http://localhost:3000/api/mostrarRestaurantes');
         const restaurantes = await response.json();
         
-        console.log(restaurantes); // Para verificar qué datos se están recibiendo
-
         const restaurantCards = document.querySelector('.restaurant-cards');
         restaurantCards.innerHTML = ''; // Limpiar el contenido anterior
 
@@ -437,7 +435,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div class="card-body">
                             <h5 class="card-title">${restaurante.nombre}</h5>
                             <p class="card-text">${restaurante.descripcion}</p>
-                            <a href="detallesRest.html?id=${restaurante.nombre}" class="btn btn-primary">Ver más</a>
+                            <a href="detallesRest.html?id=${restaurante.nombre}" class="btn btn-primary" data-id="${restaurante.nombre}">Ver más</a>
                         </div>
                     </div>
                 `;
@@ -445,7 +443,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 topRestaurantesContainer.appendChild(card);
             });
                         // Agregar evento click a todos los botones de "Ver más" en la sección de los mejores de la semana
-                        const botonesTopRestaurantes = document.querySelectorAll('.top-restaurant-button');
+                        const botonesTopRestaurantes = document.querySelectorAll('.btn.btn-primary');
             botonesTopRestaurantes.forEach(boton => {
                 boton.addEventListener('click', (event) => {
                     event.preventDefault(); // Prevenir la navegación por defecto
