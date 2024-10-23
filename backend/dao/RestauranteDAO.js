@@ -34,7 +34,7 @@ class RestauranteDAO {
         }
       }
 
-        //Metodo para actualizar los valores de un restaurante mediante el formulario (esto diría que va bien)
+        //Metodo para actualizar los valores de un restaurante mediante el formulario 
         static async updateRestaurante(jefe, nombre, email, descripcion, categoria, telefono, url, aforo, ubicacion, fotos) {
             try {
                 const result = await pool.query(

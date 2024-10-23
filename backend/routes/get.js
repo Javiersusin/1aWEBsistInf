@@ -3,6 +3,7 @@ const router = express.Router(); // Usa el router de Express
 
 const db = require('../database/db'); // Importa el pool de conexiones a PostgreSQL
 const RestauranteDAO = require('../dao/RestauranteDAO');
+
 // Ruta para obtener los restaurantes, con su informacion
 router.get('/mostrarRestaurantes', async (req, res) => {
     try {
@@ -17,13 +18,13 @@ router.get('/mostrarRestaurantes', async (req, res) => {
 
 router.get('/mostrarFormularioRestaurante', async (req, res) => {
     console.log(req.query);  // Verificar si llega el parámetro jefe
-    const { jefe } = req.query;  // Asegúrate de que estás usando req.query, no req.body
+    const { jefe } = req.query;  // Obtener el jefe desde la URL
     if (!jefe) {
         return res.status(404).json({ error: 'Jefe no encontrado' });
     }
 
     try {
-        const restaurante = await RestauranteDAO.getRestauranteByJefe(jefe);  // Revisa si este método existe en el DAO
+        const restaurante = await RestauranteDAO.getRestauranteByJefe(jefe);  // Llama al método de tu DAO
         if (!restaurante) {
             return res.status(404).json({ error: 'Restaurante no encontrado' });
         }
@@ -36,7 +37,7 @@ router.get('/mostrarFormularioRestaurante', async (req, res) => {
 
 router.get('/numRestaurantes', async (req, res) => {
     try {
-      const result = await db.query('SELECT COUNT(*) AS total FROM restaurante'); // Ajusta el nombre de tu tabla si es necesario
+      const result = await db.query('SELECT COUNT(*) AS total FROM restaurante'); 
       const totalRestaurantes = result.rows[0].total;
 
       res.json({ totalRestaurantes });
@@ -48,7 +49,7 @@ router.get('/numRestaurantes', async (req, res) => {
 
 router.get('/numResenas', async (req, res) => {
     try {
-      const result = await db.query('SELECT COUNT(*) AS total FROM resenas'); // Ajusta el nombre de tu tabla si es necesario
+      const result = await db.query('SELECT COUNT(*) AS total FROM resenas');
       const totalResenas = result.rows[0].total;
 
       res.json({ totalResenas });
@@ -169,7 +170,7 @@ router.get('/detallesRestaurante', async (req, res) => {
   }
 });
 
-
+// Ruta para obtener los detalles de un restaurante gracias a la variable jefe
 router.get('/detallesRestaurantePorJefe', async (req, res) => {
   const { jefe } = req.query; // Obtener el nombre del jefe desde la URL
 

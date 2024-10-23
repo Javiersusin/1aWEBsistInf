@@ -25,16 +25,6 @@ app.use('/api', getRoutes);
 // Usar la ruta que permite actualizar elementos de la BD
 app.use('/api', updateRoutes);
 
-/*
-// Configurar la conexión a PostgreSQL
-const pool = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'lithop21',
-  database: process.env.DB_NAME || 'BiteFinder',
-  port: 5432,
-});*/
-
 app.get('/', (req, res) => {
   res.send('Bienvenido al backend');
 });
@@ -43,12 +33,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });
-//module.exports = pool;
 
 
-/*PS D:\One Drive\OneDrive\Escritorio\SIST-inf-1AWEB> docker ps
-CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-058db2d44482   sist-inf-1aweb-backend   "docker-entrypoint.s…"   26 minutes ago   Up 26 minutes   0.0.0.0:3000->3000/tcp   node_backend
-d12624eedd11   postgres:15              "docker-entrypoint.s…"   26 minutes ago   Up 26 minutes   0.0.0.0:5432->5432/tcp   postgres_db
-PS D:\One Drive\OneDrive\Escritorio\SIST-inf-1AWEB> docker exec -it postgres_db psql -U postgres -d BiteFinder
-y aqui ya las consultas sql 1 a 1*/
